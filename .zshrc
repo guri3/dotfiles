@@ -1,3 +1,22 @@
+# zplugの設定
+source ~/.zplug/init.zsh
+
+# zpulg
+zplug "zsh-users/zsh-history-substring-search"
+zplug "b4b4r07/enhancd", use:enhancd.sh
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "zsh-users/zsh-completions"
+
+# インストール
+if ! zplug check --verbose; then
+  printf 'Install? [y/N]: '
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+zplug load --verbose
+
 # 基本機能
 # 自動補完を有効にする
 autoload -U compinit; compinit
@@ -22,6 +41,11 @@ alias la='ls -a'
 alias ll='ls -la'
 alias so='source'
 alias vi='vim'
+# railsエイリアス
+alias be='bundle exec'
+alias rs='rails s'
+alias rc='rails c'
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/shims:$PATH"

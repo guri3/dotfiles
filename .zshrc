@@ -24,3 +24,4 @@ alias so='source'
 alias vi='vim'
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/shims:$PATH"

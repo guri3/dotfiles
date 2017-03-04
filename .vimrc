@@ -81,12 +81,10 @@ set cmdheight=2
 set showmatch
 " タブをスペースに変換
 set expandtab
+" 自動インデントでずれる幅
+set shiftwidth=2
 " タブをスペース2つ分にする
 set tabstop=2
-" 自動インデント
-set autoindent
-" 改行時に自動インデント
-set smartindent
 " ビープ音を削除
 set visualbell t_vb=
 set noerrorbells

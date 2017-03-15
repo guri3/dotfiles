@@ -43,8 +43,8 @@ alias so='source'
 alias vi='vim'
 # railsエイリアス
 alias be='bundle exec'
-alias rs='rails s'
-alias rc='rails c'
+alias rs='bundle exec rails s'
+alias rc='bundle exec rails c'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

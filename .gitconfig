@@ -1,0 +1,10 @@
+[user]
+	name = guri3
+	email = aloesquash.lock@gmail.com
+[color]
+	diff = auto
+	status = auto
+  branch = auto
+[alias]
+  st = status
+  co = checkout

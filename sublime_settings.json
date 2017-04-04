@@ -1,0 +1,48 @@
+{
+  "bold_folder_labels": true,
+  "close_windows_when_empty": true,
+  "color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+  "theme": "Material-Theme.sublime-theme",
+  "draw_indent_guides": true,
+  "draw_white_space": "all",
+  "fold_buttons": true,
+  "highlight_modified_tabs": true,
+  "always_show_minimap_viewport": true,
+  "ignored_packages":
+  [
+    "ActionScript",
+    "AppleScript",
+    "Clojure",
+    "D",
+    "Erlang",
+    "Go",
+    "Graphviz",
+    "Groovy",
+    "Haskell",
+    "LaTeX",
+    "Lisp",
+    "Lua",
+    "MATLAB",
+    "Objective-C",
+    "OCaml",
+    "Pascal",
+    "Perl",
+    "PHP",
+    "Regular Expressions",
+    "RestructuredText",
+    "Rust",
+    "Scala",
+    "TCL",
+    "Vintage"
+  ],
+  "indent_guide_options":
+  [
+    "draw_normal",
+    "draw_active"
+  ],
+  "line_padding_bottom": 1,
+  "line_padding_top": 1,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "wide_caret": true
+}

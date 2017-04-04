@@ -1,13 +1,18 @@
 {
+  "always_show_minimap_viewport": true,
   "bold_folder_labels": true,
   "close_windows_when_empty": true,
-  "color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
-  "theme": "Material-Theme.sublime-theme",
+  "color_scheme": "Packages/ayu/ayu-mirage.tmTheme",
   "draw_indent_guides": true,
   "draw_white_space": "all",
   "fold_buttons": true,
+  "ui_separator":             true, // separators between panels
   "highlight_modified_tabs": true,
-  "always_show_minimap_viewport": true,
+  "ui_big_tabs":              true, // increased tab height
+  "ui_fix_tab_labels":        true, // to fix tab labels if they look not right
+  "ui_font_source_code_pro": true, // use [Source Code Pro](https://fonts.google.com/specimen/Source+Code+Pro) for UI
+  "ui_wide_scrollbars":  true,  // wider scrollbars
+  "ui_sidebar_highlight_row": true, // to highlight whole row for current item in sidebar
   "ignored_packages":
   [
     "ActionScript",
@@ -43,6 +48,7 @@
   "line_padding_bottom": 1,
   "line_padding_top": 1,
   "tab_size": 2,
+  "theme": "ayu-mirage.sublime-theme",
   "translate_tabs_to_spaces": true,
   "wide_caret": true
 }

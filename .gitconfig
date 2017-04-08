@@ -1,12 +1,22 @@
 [user]
 	name = guri3
 	email = aloesquash.lock@gmail.com
+[core]
+	quotepath = false
+  editor = vi
+[push]
+    # push only the current branch
+    default = current
 [color]
-	diff = auto
-	status = auto
+  diff = auto
+  status = auto
   branch = auto
 [alias]
   st = status
-  co = checkout
-[core]
-	quotepath = false
+  co = checkout 
+  ci = commit
+  dc = diff --cached
+  d = diff
+  di = diff
+  info = remote show origin
+  s = status --short --branch

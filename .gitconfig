@@ -8,3 +8,5 @@
 [alias]
   st = status
   co = checkout
+[core]
+	quotepath = false

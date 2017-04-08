@@ -47,5 +47,8 @@ alias rs='bundle exec rails s'
 alias rc='bundle exec rails c'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/shims:$PATH"
+eval "$(rbenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

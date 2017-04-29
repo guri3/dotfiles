@@ -45,6 +45,7 @@ alias vi='vim'
 alias be='bundle exec'
 alias rs='bundle exec rails s'
 alias rc='bundle exec rails c'
+alias bi='bundle install --path vendor/bundle'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"

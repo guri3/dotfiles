@@ -5,8 +5,8 @@
 	quotepath = false
   editor = vi
 [push]
-    # push only the current branch
-    default = current
+  # push only the current branch
+  default = current
 [color]
   diff = auto
   status = auto

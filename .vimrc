@@ -46,7 +46,7 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vspli
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-" """"""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -73,6 +73,8 @@ set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 set fileformats=unix,dos,mac
 " 行数を表示
 set number
+" スワップファイルを作成しない
+set noswapfile
 " ステータスを表示
 set laststatus=2
 " コマンド履歴を2行に設定

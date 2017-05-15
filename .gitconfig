@@ -1,8 +1,8 @@
 [user]
-	name = guri3
-	email = aloesquash.lock@gmail.com
+  name = guri3
+  email = aloesquash.lock@gmail.com
 [core]
-	quotepath = false
+  quotepath = false
   editor = vi
 [push]
   # push only the current branch
@@ -13,10 +13,15 @@
   branch = auto
 [alias]
   st = status
-  co = checkout 
+  s = status --short --branch
   ci = commit
-  dc = diff --cached
+  co = checkout 
+  br = branch
+  fe = fetch
   d = diff
   di = diff
+  dc = diff --cached
   info = remote show origin
-  s = status --short --branch
+  lg = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s %Cred%d%Creset'
+  lga = log --graph --all --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s %Cred%d%Creset'
+  dc = diff --cached

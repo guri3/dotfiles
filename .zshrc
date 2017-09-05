@@ -79,7 +79,7 @@ precmd () { vcs_info }
 
 # プロンプト（左）
 PROMPT='%{[${fg[yellow]%}%}%n%{${reset_color}%}]'
-PROMPT=$PROMPT'${vcs_info_msg_0_}%% '
+PROMPT=$PROMPT'${vcs_info_msg_0_}$ '
 
 # エイリアス
 alias la='ls -a'

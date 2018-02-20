@@ -78,8 +78,9 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリ�
 precmd () { vcs_info }
 
 # プロンプト（左）
-PROMPT='%{[${fg[yellow]%}%}%n%{${reset_color}%}]'
-PROMPT=$PROMPT'${vcs_info_msg_0_}$ '
+PROMPT='
+%~ ${vcs_info_msg_0_}
+%{[${fg[yellow]%}%}%n%{${reset_color}%}]$ '
 
 # エイリアス
 alias la='ls -a'

@@ -28,6 +28,8 @@ autoload -U colors; colors
 setopt auto_pushd
 # pushd したとき、ディレクトリがすでにスタックに含まれていればスタックに追加しない
 setopt pushd_ignore_dups
+# cdコマンドをつけなくてもディレクトリ移動
+setopt auto_cd
 
 # コマンド履歴
 # 履歴ファイルの保存先

@@ -94,11 +94,3 @@ alias be='bundle exec'
 alias rs='bundle exec rails s'
 alias rc='bundle exec rails c'
 alias bi='bundle install --path vendor/bundle'
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-eval "$(rbenv init -)"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-export PATH="/Users/daiki/anaconda3/bin:$PATH"

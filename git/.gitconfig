@@ -1,0 +1,74 @@
+[user]
+  name = guri3
+  email = aloesquash.lock@gmail.com
+
+[core]
+  editor = vi
+  excludesfile = ~/.gitignore
+  quotepath = false
+
+[push]
+  default = current
+
+[color]
+  ui = auto
+
+[alias]
+  a    = add
+  c    = commit
+  cm   = commit -m
+  ca   = commit --amend
+  cam  = commit --amend -m
+  cane = commit --amend --no-edit
+  ce   = commit --allow-empty -m
+
+  r   = remote
+  ra  = remote add
+  ru  = remote set-url
+  ruo = remote set-url origin
+
+  t  = tag
+  b  = branch
+  bd = branch -D
+  bm = branch -m
+
+  co = checkout 
+  k  = checkout
+  km = checkout master
+  kd = checkout develop
+
+  fe = fetch
+  fo = fetch origin
+
+  pl = pull
+  pu = push
+
+  s  = status -s -b
+  st = status
+  d  = diff
+  dc = diff --cached
+
+  l   = log --oneline
+  lg  = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s %Cred%d%Creset'
+  lga = log --graph --all --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s %Cred%d%Creset'
+
+  sta = stash
+  sp  = stash pop
+  v   = revert
+  p   = cherry-pick
+
+  m   = merge
+  rb  = rebase
+  rbm = rebase master
+
+  res  = reset --soft
+  res0 = reset --soft HEAD
+  res1 = reset --soft HEAD~
+  res2 = reset --soft HEAD~~
+  res3 = reset --soft HEAD~~~
+
+  reh  = reset --hard
+  reh0 = reset --hard HEAD
+  reh1 = reset --hard HEAD~
+  reh2 = reset --hard HEAD~~
+  reh3 = reset --hard HEAD~~~

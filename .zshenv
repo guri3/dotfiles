@@ -25,6 +25,9 @@ export PGDATA=/usr/local/var/postgres
 # android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 
+# go
+export GOPATH="$HOME/.go"
+
 
 # Search path
 #----------------------------------------------------

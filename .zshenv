@@ -1,5 +1,6 @@
 # Generail
 #----------------------------------------------------
+setopt no_global_rcs
 export LANG=ja_JP.UTF-8
 export EDITOR=vim
 

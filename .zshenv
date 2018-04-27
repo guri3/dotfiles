@@ -4,6 +4,11 @@ setopt no_global_rcs
 export LANG=ja_JP.UTF-8
 export EDITOR=vim
 
+# Search path
+#----------------------------------------------------
+# local
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/bin:$PATH
 
 # Path
 #----------------------------------------------------
@@ -29,10 +34,3 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 # go
 export GOPATH="$HOME/projects/gocode"
 export PATH="$(go env GOPATH)/bin:$PATH"
-
-
-# Search path
-#----------------------------------------------------
-# local
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/bin:$PATH

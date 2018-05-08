@@ -26,12 +26,22 @@ if dein#load_state('~/.cache/dein')
   call dein#add('itchyny/lightline.vim')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('nathanaelkane/vim-indent-guides')
+  call dein#add('fatih/vim-go')
 
 " lightlineの設定
 set background=dark
 colorscheme solarized
 let g:lightline = {
       \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [
+      \     ['mode', 'paste'],
+      \     ['gitbranch', 'readonly', 'filename', 'modified'],
+      \   ],
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
       \ }
 
 " インデントを可視化する
@@ -86,6 +96,12 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 set fileformats=unix,dos,mac
+" モードによってカーソルの形を変更する
+if has('vim_starting')
+  let &t_SI .= "\e[6 q"
+  let &t_EI .= "\e[2 q"
+  let &t_SR .= "\e[4 q"
+endif
 " 行番号のハイライト
 set cursorline
 hi clear CursorLine

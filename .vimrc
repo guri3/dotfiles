@@ -28,24 +28,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('fatih/vim-go')
 
-" lightlineの設定
-set background=dark
-colorscheme solarized
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ 'active': {
-      \   'left': [
-      \     ['mode', 'paste'],
-      \     ['gitbranch', 'readonly', 'filename', 'modified'],
-      \   ],
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-
 " インデントを可視化する
-" let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
 
 " http://blog.remora.cx/2010/12/vim-ref-with-unite.html
 """"""""""""""""""""""""""""""
@@ -91,6 +76,22 @@ endif
 
 "End dein Scripts-------------------------
 
+" lightlineの設定
+set background=dark
+colorscheme solarized
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [
+      \     ['mode', 'paste'],
+      \     ['gitbranch', 'readonly', 'filename', 'modified'],
+      \   ],
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
 " 基本的な設定
 set backspace=indent,eol,start
 set encoding=utf-8
@@ -104,12 +105,17 @@ if has('vim_starting')
 endif
 " 行番号のハイライト
 set cursorline
-hi clear CursorLine
 " 不可視文字を表示する
 set list
-set listchars=tab:\▸\-,extends:»,precedes:«,nbsp:%
+set listchars=tab:\▸\-,extends:»,precedes:«,nbsp:%,trail:.
 " 検索語句のハイライト
 set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+" コマンド補完をわかりやすく
+set wildmenu
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 " 行数を表示
 set number
 " スワップファイルを作成しない
@@ -131,3 +137,16 @@ set noerrorbells
 set laststatus=2
 set noshowmode
 set showcmd
+set clipboard=unnamed,autoselect
+if &term =~ "xterm"
+  let &t_SI .= "\e[?2004h"
+  let &t_EI .= "\e[?2004l"
+  let &pastetoggle = "\e[201~"
+
+  function XTermPasteBegin(ret)
+    set paste
+    return a:ret
+  endfunction
+
+  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif

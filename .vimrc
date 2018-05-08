@@ -22,6 +22,20 @@ if dein#load_state('~/.cache/dein')
   call dein#add('Shougo/neomru.vim')
   call dein#add('tpope/vim-rails')
   call dein#add('tpope/vim-endwise')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('airblade/vim-gitgutter')
+  call dein#add('nathanaelkane/vim-indent-guides')
+
+" lightlineの設定
+set background=dark
+colorscheme solarized
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
+
+" インデントを可視化する
+" let g:indent_guides_enable_on_vim_startup = 1
 
 " http://blog.remora.cx/2010/12/vim-ref-with-unite.html
 """"""""""""""""""""""""""""""
@@ -67,18 +81,25 @@ endif
 
 "End dein Scripts-------------------------
 
+" 基本的な設定
 set backspace=indent,eol,start
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 set fileformats=unix,dos,mac
+" 行番号のハイライト
+set cursorline
+hi clear CursorLine
+" 不可視文字を表示する
+set list
+set listchars=tab:\▸\-,extends:»,precedes:«,nbsp:%
+" 検索語句のハイライト
+set hlsearch
 " 行数を表示
 set number
 " スワップファイルを作成しない
 set noswapfile
-" ステータスを表示
-set laststatus=2
 " コマンド履歴を2行に設定
-set cmdheight=2
+"set cmdheight=2
 " カッコの対応を強調
 set showmatch
 " タブをスペースに変換
@@ -90,3 +111,7 @@ set tabstop=2
 " ビープ音を削除
 set visualbell t_vb=
 set noerrorbells
+" ステータスラインの設定
+set laststatus=2
+set noshowmode
+set showcmd

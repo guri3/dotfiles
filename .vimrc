@@ -30,7 +30,7 @@ if dein#load_state('~/.cache/dein')
 
 " インデントを可視化する
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
+let g:indent_guides_start_level = 1
 
 " http://blog.remora.cx/2010/12/vim-ref-with-unite.html
 """"""""""""""""""""""""""""""

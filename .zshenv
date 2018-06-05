@@ -30,6 +30,7 @@ export PGDATA=/usr/local/var/postgres
 
 # android
 export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 
 # go
 export GOPATH="$HOME/projects/gocode"

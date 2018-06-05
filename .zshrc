@@ -54,6 +54,13 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
+function peco-history-selection() {
+  BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+  CURSOR=$#BUFFER
+  zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
 
 # <Tab> でパス名の補完候補を表示したあと、
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
@@ -94,3 +101,9 @@ alias be='bundle exec'
 alias rs='bundle exec rails s'
 alias rc='bundle exec rails c'
 alias bi='bundle install --path vendor/bundle'
+# dockerエイリアス
+alias do='docker'
+alias doc='docker-compose'
+alias dcb='docker-compose build'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'

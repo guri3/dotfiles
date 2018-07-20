@@ -32,7 +32,7 @@
   bd = branch -D
   bm = branch -m
 
-  co = checkout 
+  co = checkout
   k  = checkout
   km = checkout master
   kd = checkout develop

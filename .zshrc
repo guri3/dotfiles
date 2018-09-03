@@ -96,6 +96,7 @@ alias la='ls -a'
 alias ll='ls -la'
 alias so='source'
 alias vi='vim'
+alias g='git'
 # railsエイリアス
 alias be='bundle exec'
 alias rs='bundle exec rails s'

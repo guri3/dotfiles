@@ -30,6 +30,7 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 # cdコマンドをつけなくてもディレクトリ移動
 setopt auto_cd
+cdpath=(.. ~ ~/projects)
 
 # コマンド履歴
 # 履歴ファイルの保存先
@@ -101,7 +102,7 @@ alias g='git'
 alias s='git s'
 alias st='git st'
 alias a='git add .'
-alias c='git commit -c'
+alias c='git commit -m'
 alias d='git d'
 alias pu='git push'
 alias pl='git pull'

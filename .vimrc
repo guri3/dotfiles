@@ -27,6 +27,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('airblade/vim-gitgutter')
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('fatih/vim-go')
+  call dein#add('simeji/winresizer')
 
 " インデントを可視化する
 let g:indent_guides_enable_on_vim_startup = 1
@@ -78,9 +79,9 @@ endif
 
 " lightlineの設定
 set background=dark
-colorscheme solarized
+colorscheme iceberg
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'default',
       \ 'active': {
       \   'left': [
       \     ['mode', 'paste'],
@@ -103,8 +104,25 @@ if has('vim_starting')
   let &t_EI .= "\e[2 q"
   let &t_SR .= "\e[4 q"
 endif
+set whichwrap=b,s,h,l,<,>,[,],~
 " 行番号のハイライト
 set cursorline
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sq :<C-u>q<CR>
+nnoremap sQ :<C-u>bd<CR>
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sn gl
+nnoremap sp gT
+nnoremap s= <C-w>=
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
 " 不可視文字を表示する
 set list
 set listchars=tab:\▸\-,extends:»,precedes:«,nbsp:%,trail:.
@@ -138,6 +156,16 @@ set laststatus=2
 set noshowmode
 set showcmd
 set clipboard=unnamed,autoselect
+if has('mouse')
+  set mouse=a
+  if has('mouse_sgr')
+    set ttymouse=sgr
+  elseif v:version > 703 || v:version is 703 && has('patch632')
+    set ttymouse=sgr
+  else
+    set ttymouse=xterm2
+  endif
+endif
 if &term =~ "xterm"
   let &t_SI .= "\e[?2004h"
   let &t_EI .= "\e[?2004l"

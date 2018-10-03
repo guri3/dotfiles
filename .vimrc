@@ -28,6 +28,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('fatih/vim-go')
   call dein#add('simeji/winresizer')
+  call dein#add('othree/yajs.vim')
 
 " http://blog.remora.cx/2010/12/vim-ref-with-unite.html
 """"""""""""""""""""""""""""""

@@ -29,10 +29,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('fatih/vim-go')
   call dein#add('simeji/winresizer')
 
-" インデントを可視化する
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 1
-
 " http://blog.remora.cx/2010/12/vim-ref-with-unite.html
 """"""""""""""""""""""""""""""
 " Unit.vimの設定
@@ -92,6 +88,13 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
+" インデントを可視化する
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=237
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=239
 
 " 基本的な設定
 set backspace=indent,eol,start

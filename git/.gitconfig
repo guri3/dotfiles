@@ -8,7 +8,7 @@
   quotepath = false
 
 [push]
-  default = current
+  default = simple
 
 [color]
   ui = auto

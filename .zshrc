@@ -92,6 +92,29 @@ PROMPT='
 %~ ${vcs_info_msg_0_}
 %{[${fg[yellow]%}%}%n%{${reset_color}%}]$ '
 
+# tmuxのwindowを左右に分けるコマンド
+s3() {
+  tmux split-window -h
+}
+# tmuxのwindowを3つに分けるコマンド
+s3() {
+  tmux split-window -h
+  tmux split-window -v -t 1.2
+}
+# tmuxのwindowを4等分するコマンド
+s4 () {
+  tmux split-window -h
+  tmux split-window -v -t 1.1
+  tmux split-window -v -t 1.3
+}
+# git checkout + peco
+gco () {
+  git branch |
+  peco |
+  sed -e 's/\* //g' |
+  xargs git checkout
+}
+
 # エイリアス
 alias la='ls -a'
 alias ll='ls -la'
@@ -105,6 +128,7 @@ alias a='git add .'
 alias c='git commit -m'
 alias d='git d'
 alias pu='git push'
+alias spu='git push origin HEAD'
 alias pl='git pull'
 alias c='git checkout'
 alias k='git checkout'

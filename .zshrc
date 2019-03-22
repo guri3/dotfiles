@@ -99,13 +99,13 @@ s3() {
 # tmuxのwindowを3つに分けるコマンド
 s3() {
   tmux split-window -h
-  tmux split-window -v -t 1.2
+  tmux split-window -v -t `tmux display-message -p '#I'`.2
 }
 # tmuxのwindowを4等分するコマンド
 s4 () {
   tmux split-window -h
-  tmux split-window -v -t 1.1
-  tmux split-window -v -t 1.3
+  tmux split-window -v -t `tmux display-message -p '#I'`.1
+  tmux split-window -v -t `tmux display-message -p '#I'`.3
 }
 # git checkout + peco
 gco () {

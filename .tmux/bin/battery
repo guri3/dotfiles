@@ -1,4 +1,10 @@
 #!/bin/bash
+#
+# Copyright (c) 2016 "BABAROT" b4b4r07
+# Released under the MIT license
+# https://github.com/b4b4r07/dotfiles/blob/master/doc/LICENSE-MIT.txt
+#
+#####################################################################
 
 has() { type "$1" &>/dev/null; }
 

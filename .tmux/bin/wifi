@@ -1,5 +1,9 @@
 #!/bin/bash
 #
+# Copyright (c) 2016 "BABAROT" b4b4r07
+# Released under the MIT license
+# https://github.com/b4b4r07/dotfiles/blob/master/doc/LICENSE-MIT.txt
+#
 # @(#) wifi v0.2.0 2015-09-24
 #
 # usage:

@@ -55,13 +55,14 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-function peco-history-selection() {
-  BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+# 登録コマンドとコマンド履歴から検索
+function peco-command-selection() {
+  BUFFER=`{ history -n 1 | tail -r ; cat ~/.command.txt } | peco`
   CURSOR=$#BUFFER
   zle reset-prompt
 }
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+zle -N peco-command-selection
+bindkey '^R' peco-command-selection
 
 # <Tab> でパス名の補完候補を表示したあと、
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる

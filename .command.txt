@@ -1,0 +1,4 @@
+# Rails
+be rails db:create
+be rails db:migrate
+be rails db:seed

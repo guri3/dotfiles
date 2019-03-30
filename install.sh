@@ -1,4 +1,5 @@
 ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/.tmux ~/.tmux
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.zshenv ~/.zshenv
 ln -s ~/dotfiles/.zshrc ~/.zshrc
@@ -7,3 +8,4 @@ ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/dotfiles/.pryrc ~/.pryrc
 ln -s ~/dotfiles/.vim ~/.vim
+ln -s ~/dotfiles/.command.txt ~/.command.txt

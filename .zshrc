@@ -117,6 +117,11 @@ gco () {
 }
 
 # エイリアス
+# Directory
+alias dot='cd ~/dotfiles'
+alias dotv='code ~/dotfiles'
+alias goc='cd $GOPATH/src/github.com/guri3'
+# General
 alias la='ls -a'
 alias ll='ls -la'
 alias so='source'

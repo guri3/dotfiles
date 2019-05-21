@@ -100,7 +100,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=239
 " 基本的な設定
 set backspace=indent,eol,start
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8
 set fileformats=unix,dos,mac
 " モードによってカーソルの形を変更する
 if has('vim_starting')

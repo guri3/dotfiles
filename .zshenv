@@ -18,7 +18,6 @@ export DOTFILES_PATH="$HOME/dotfiles"
 # ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
-eval "$(rbenv init -)"
 
 # python
 export PATH="$HOME/.pyenv/bin:$PATH"

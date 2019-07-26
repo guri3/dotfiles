@@ -32,8 +32,8 @@ export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 
 # go
-export GOPATH="$HOME/projects/gocode"
-export PATH="$(go env GOPATH)/bin:$PATH"
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
 
 # node
 export NVM_DIR="$HOME/.nvm"
@@ -42,3 +42,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # crystal
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
+
+# goenv
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"

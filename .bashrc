@@ -47,10 +47,8 @@ function tmux_automatically_attach_session()
                 fi
             fi
 
-            if is_osx && is_exists 'reattach-to-user-namespace'; then
-                # on OS X force tmux's default command
-                # to spawn a shell in the user's namespace
-                tmux_config=$(cat $HOME/.tmux.conf <(echo 'set-option -g default-command "reattach-to-user-namespace -l zsh"'))
+            if is_osx; then
+                tmux_config=$(cat $HOME/.tmux.conf)
                 tmux -f <(echo "$tmux_config") new-session && echo "$(tmux -V) created new session supported OS X"
             else
                 tmux new-session && echo "tmux created new session"
@@ -59,7 +57,3 @@ function tmux_automatically_attach_session()
     fi
 }
 tmux_automatically_attach_session
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

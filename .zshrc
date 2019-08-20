@@ -1,24 +1,27 @@
+# .zshrc のコンパイル
+if [ ! -f ~/dotfiles/.zshrc.zwc -o ~/dotfiles/.zshrc -nt ~/dotfiles/.zshrc.zwc ]; then
+  zcompile ~/dotfiles/.zshrc
+fi
+
 # zplugの設定
 source ~/.zplug/init.zsh
 
 # zpulg
-zplug "zsh-users/zsh-history-substring-search"
-zplug "b4b4r07/enhancd", use:enhancd.sh
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # インストール
-if ! zplug check --verbose; then
-  printf 'Install? [y/N]: '
-  if read -q; then
-    echo; zplug install
-  fi
-fi
+# if ! zplug check --verbose; then
+#   printf 'Install? [y/N]: '
+#   if read -q; then
+#     echo; zplug install
+#   fi
+# fi
 
-zplug load --verbose
+zplug load
 
 # 自動補完を有効にする
-autoload -U compinit; compinit
+# autoload -U compinit; compinit
 # コマンドプロンプトに色をつける
 autoload -U colors; colors
 
@@ -109,12 +112,12 @@ s4 () {
   tmux split-window -v -t `tmux display-message -p '#I'`.3
 }
 # git checkout + peco
-gco () {
-  git branch |
-  peco |
-  sed -e 's/\* //g' |
-  xargs git checkout
-}
+# gco () {
+#   git branch |
+#   peco |
+#   sed -e 's/\* //g' |
+#   xargs git checkout
+# }
 
 # エイリアス
 # Directory
@@ -153,3 +156,7 @@ alias doc='docker-compose'
 alias dcb='docker-compose build'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
+
+if (which zprof > /dev/null 2>&1) ;then
+  zprof
+fi

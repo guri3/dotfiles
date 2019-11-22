@@ -101,9 +101,9 @@ function emoji {
     echo -n '\U1F914'
   elif [[ $(pwd) = $HOME ]]; then
     echo -n '\U1F3E0'
-  elif [[ $(pwd) = "$HOME/projects" ]]; then
+  elif [[ $(pwd) =~ "$HOME/projects" ]]; then
     echo -n '\U1F4BB'
-  elif [[ $(pwd) = "$HOME/dotfiles" ]]; then
+  elif [[ $(pwd) =~ "$HOME/dotfiles" ]]; then
     echo -n '\U1F527'
   else
     echo -n '\U1F4C2'

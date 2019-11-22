@@ -89,13 +89,33 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリ�
 # %u uncommit
 
 # プロンプト表示直前に vcs_info 呼び出し
-precmd () { vcs_info }
+function add_line {
+  if [[ -z "${PS1_NEWLINE_LOGIN}" ]]; then
+    PS1_NEWLINE_LOGIN=true
+  else
+    printf '\n'
+  fi
+}
+function emoji {
+  if [[ $? != 0 ]]; then
+    echo -n '\U1F914'
+  elif [[ $(pwd) = $HOME ]]; then
+    echo -n '\U1F3E0'
+  elif [[ $(pwd) = "$HOME/projects" ]]; then
+    echo -n '\U1F4BB'
+  elif [[ $(pwd) = "$HOME/dotfiles" ]]; then
+    echo -n '\U1F527'
+  else
+    echo -n '\U1F4C2'
+  fi
+}
+function current_path {
+}
+precmd() { add_line; vcs_info }
 
 # プロンプト（左）
-PROMPT='
-%~ ${vcs_info_msg_0_}
-%{[${fg[yellow]%}%}%n%{${reset_color}%}]$ '
-
+PROMPT='$(emoji) %~ ${vcs_info_msg_0_}
+%{%F{202}%}❯%{%f%}%{%F{221}%}❯%{${reset_color}%}%{%F{027}%}❯%{%f%} '
 # tmuxのwindowを左右に分けるコマンド
 s3() {
   tmux split-window -h

@@ -90,7 +90,7 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリ�
 
 # プロンプト表示直前に vcs_info 呼び出し
 function add_line {
-  if [[ -z "${PS1_NEWLINE_LOGIN}" ]]; then
+  if [[ -z $PS1_NEWLINE_LOGIN ]]; then
     PS1_NEWLINE_LOGIN=true
   else
     printf '\n'
@@ -115,7 +115,7 @@ precmd() { add_line; vcs_info }
 
 # プロンプト（左）
 PROMPT='$(emoji) %~ ${vcs_info_msg_0_}
-%{%F{202}%}❯%{%f%}%{%F{221}%}❯%{${reset_color}%}%{%F{027}%}❯%{%f%} '
+%{%F{202}%}❯%{%f%}%{%F{221}%}❯%{%f%}%{%F{027}%}❯%{%f%} '
 # tmuxのwindowを左右に分けるコマンド
 s3() {
   tmux split-window -h

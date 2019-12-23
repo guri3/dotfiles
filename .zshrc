@@ -117,7 +117,7 @@ precmd() { add_line; vcs_info }
 PROMPT='$(emoji) %~ ${vcs_info_msg_0_}
 %{%F{202}%}❯%{%f%}%{%F{221}%}❯%{%f%}%{%F{027}%}❯%{%f%} '
 # tmuxのwindowを左右に分けるコマンド
-s3() {
+s2() {
   tmux split-window -h
 }
 # tmuxのwindowを3つに分けるコマンド

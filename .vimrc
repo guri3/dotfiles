@@ -15,6 +15,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
+  call dein#add('vim-jp/vimdoc-ja')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('scrooloose/nerdtree')
@@ -102,6 +103,7 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set fileencodings=utf-8
 set fileformats=unix,dos,mac
+set helplang=ja
 " モードによってカーソルの形を変更する
 if has('vim_starting')
   let &t_SI .= "\e[6 q"

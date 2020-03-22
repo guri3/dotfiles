@@ -21,9 +21,13 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug load
 
 # 自動補完を有効にする
-# autoload -U compinit; compinit
+autoload -Uz compinit; compinit
 # コマンドプロンプトに色をつける
-autoload -U colors; colors
+autoload -Uz colors; colors
+zstyle ':completion:*' verbose yes
+export LSCOLORS=exfxcxdxbxegedabagacad
+LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # ディレクトリ移動など
 # cd した先のディレクトリをディレクトリスタックに追加する
@@ -145,8 +149,9 @@ alias dot='cd ~/dotfiles'
 alias dotv='code ~/dotfiles'
 alias goc='cd $GOPATH/src/github.com/guri3'
 # General
-alias la='ls -a'
-alias ll='ls -la'
+alias ls='ls -G'
+alias la='ls -aG'
+alias ll='ls -aGl'
 alias so='source'
 alias vi='vim'
 # gitエイリアス

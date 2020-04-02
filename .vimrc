@@ -77,6 +77,7 @@ endif
 
 " lightlineの設定
 set background=dark
+colorscheme iceberg
 let g:lightline = {
       \ 'colorscheme': 'default',
       \ 'active': {

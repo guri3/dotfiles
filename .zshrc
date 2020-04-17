@@ -11,12 +11,12 @@ zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # インストール
-# if ! zplug check --verbose; then
-#   printf 'Install? [y/N]: '
-#   if read -q; then
-#     echo; zplug install
-#   fi
-# fi
+if ! zplug check --verbose; then
+  printf 'Install? [y/N]: '
+  if read -q; then
+    echo; zplug install
+  fi
+fi
 
 zplug load
 
@@ -148,6 +148,8 @@ s4 () {
 alias dot='cd ~/dotfiles'
 alias dotv='code ~/dotfiles'
 alias goc='cd $GOPATH/src/github.com/guri3'
+# ghq
+alias gh='cd $(ghq root)/$(ghq list | peco)'
 # General
 alias ls='ls -G'
 alias la='ls -aG'

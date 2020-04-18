@@ -18,14 +18,8 @@ export PATH=/usr/bin:$PATH
 # dotfiles
 export DOTFILES_PATH="$HOME/dotfiles"
 
-# ruby
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-
-# python
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-export PATH="$HOME/anaconda3/bin:$PATH"
+# anyenv
+eval "$(anyenv init -)"
 
 # PostgreSQL
 export PGDATA=/usr/local/var/postgres
@@ -34,17 +28,6 @@ export PGDATA=/usr/local/var/postgres
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 
-# go
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-
-# node
-eval "$(nodenv init -)"
-
 # crystal
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
-# goenv
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"

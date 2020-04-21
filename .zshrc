@@ -60,8 +60,9 @@ setopt hist_expand
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
+bindkey '^P' history-beginning-search-backward-end
+bindkey '^N' history-beginning-search-forward-end
+
 # pecoでコマンド検索
 function peco-command-selection() {
   BUFFER=`{ history -n 1 | tail -r ; cat ~/.command.txt } | awk '!a[$0]++' | peco`
@@ -71,15 +72,26 @@ function peco-command-selection() {
 zle -N peco-command-selection
 bindkey '^R' peco-command-selection
 
+# pecoでghq検索
 function ghq-list-peco() {
-  cd $(ghq root)/$(ghq list | peco)
+  local dir="$(ghq list | peco)"
+  if [[ ! -z $dir ]]; then
+    cd "$(ghq root)/$dir"
+  fi
   zle reset-prompt
 }
 zle -N ghq-list-peco
 bindkey '^E' ghq-list-peco
 
+# pecoでGitHubのURLを開く
 function gh-open-peco() {
-  gh repo view $(ghq list | peco | sed -e 's/github.com\///g') --web
+  local repo="$(ghq list | peco | sed -e 's/github.com\///g')"
+  if [[ ! -z $repo ]]; then
+    BUFFER="gh repo view $repo --web"
+    CURSOR=$#BUFFER
+    # gh repo view "$repo" --web
+    zle reset-prompt
+  fi
 }
 zle -N gh-open-peco
 bindkey '^G' gh-open-peco

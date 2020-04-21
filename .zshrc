@@ -71,6 +71,19 @@ function peco-command-selection() {
 zle -N peco-command-selection
 bindkey '^R' peco-command-selection
 
+function ghq-list-peco() {
+  cd $(ghq root)/$(ghq list | peco)
+  zle reset-prompt
+}
+zle -N ghq-list-peco
+bindkey '^E' ghq-list-peco
+
+function gh-open-peco() {
+  gh repo view $(ghq list | peco | sed -e 's/github.com\///g') --web
+}
+zle -N gh-open-peco
+bindkey '^G' gh-open-peco
+
 # <Tab> でパス名の補完候補を表示したあと、
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
 zstyle ':completion:*:default' menu select=1
@@ -148,8 +161,6 @@ s4 () {
 alias dot='cd ~/dotfiles'
 alias dotv='code ~/dotfiles'
 alias goc='cd $GOPATH/src/github.com/guri3'
-# ghq
-alias gh='cd $(ghq root)/$(ghq list | peco)'
 # General
 alias ls='ls -G'
 alias la='ls -aG'

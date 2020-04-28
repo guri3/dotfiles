@@ -1,6 +1,6 @@
 # .zshrc のコンパイル
-if [ ! -f ~/dotfiles/.zshrc.zwc -o ~/dotfiles/.zshrc -nt ~/dotfiles/.zshrc.zwc ]; then
-  zcompile ~/dotfiles/.zshrc
+if [ ! -f $DOTFILES_PATH/.zshrc.zwc -o $DOTFILES_PATH/.zshrc -nt $DOTFILES_PATH/.zshrc.zwc ]; then
+  zcompile $DOTFILES_PATH/.zshrc
 fi
 
 # zplugの設定
@@ -63,38 +63,37 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey '^P' history-beginning-search-backward-end
 bindkey '^N' history-beginning-search-forward-end
 
-# pecoでコマンド検索
-function peco-command-selection() {
-  BUFFER=`{ history -n 1 | tail -r ; cat ~/.command.txt } | awk '!a[$0]++' | peco`
+# コマンド検索
+function command-history-search() {
+  BUFFER=`{ history -n 1 | tail -r ; cat ~/.command.txt } | awk '!a[$0]++' | fzf`
   CURSOR=$#BUFFER
   zle reset-prompt
 }
-zle -N peco-command-selection
-bindkey '^R' peco-command-selection
+zle -N command-history-search
+bindkey '^R' command-history-search
 
-# pecoでghq検索
-function ghq-list-peco() {
-  local dir="$(ghq list | peco)"
+# ghq検索
+function ghq-list-search() {
+  local dir="$(ghq list | fzf)"
   if [[ ! -z $dir ]]; then
     cd "$(ghq root)/$dir"
   fi
   zle reset-prompt
 }
-zle -N ghq-list-peco
-bindkey '^E' ghq-list-peco
+zle -N ghq-list-search
+bindkey '^E' ghq-list-search
 
-# pecoでGitHubのURLを開く
-function gh-open-peco() {
-  local repo="$(ghq list | peco | sed -e 's/github.com\///g')"
+# GitHubのURLを開く
+function gh-open-search() {
+  local repo="$(ghq list | fzf | sed -e 's/github.com\///g')"
   if [[ ! -z $repo ]]; then
     BUFFER="gh repo view $repo --web"
     CURSOR=$#BUFFER
-    # gh repo view "$repo" --web
     zle reset-prompt
   fi
 }
-zle -N gh-open-peco
-bindkey '^G' gh-open-peco
+zle -N gh-open-search
+bindkey '^B' gh-open-search
 
 # <Tab> でパス名の補完候補を表示したあと、
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
@@ -130,10 +129,10 @@ function emoji {
     echo -n '\U1F914'
   elif [[ $(pwd) = $HOME ]]; then
     echo -n '\U1F3E0'
-  elif [[ $(pwd) =~ "$HOME/projects" ]]; then
-    echo -n '\U1F4BB'
-  elif [[ $(pwd) =~ "$HOME/dotfiles" ]]; then
+  elif [[ $(pwd) =~ "$DOTFILES_PATH" ]]; then
     echo -n '\U1F527'
+  elif [[ $(pwd) =~ "$HOME/ghq" ]]; then
+    echo -n '\U1F4BB'
   else
     echo -n '\U1F4C2'
   fi
@@ -160,18 +159,11 @@ s4 () {
   tmux split-window -v -t `tmux display-message -p '#I'`.1
   tmux split-window -v -t `tmux display-message -p '#I'`.3
 }
-# git checkout + peco
-# gco () {
-#   git branch |
-#   peco |
-#   sed -e 's/\* //g' |
-#   xargs git checkout
-# }
 
 # エイリアス
 # Directory
-alias dot='cd ~/dotfiles'
-alias dotv='code ~/dotfiles'
+alias dot="cd $DOTFILES_PATH"
+alias dotv="code $DOTFILES_PATH"
 alias goc='cd $GOPATH/src/github.com/guri3'
 # General
 alias ls='ls -G'
@@ -192,6 +184,7 @@ alias gpu='git push'
 alias gpuh='git push origin HEAD'
 alias gpl='git pull'
 alias gco='git checkout'
+alias gc='git branch | fzf | sed -e "s/\* //g" | xargs git checkout'
 alias gl='git log --oneline'
 alias glg='git log --graph --date=short --pretty=format:"%Cgreen%h %cd %Cblue%cn %Creset%s %Cred%d%Creset"'
 alias galg='git log --graph --all --date=short --pretty=format:"%Cgreen%h %cd %Cblue%cn %Creset%s %Cred%d%Creset"'

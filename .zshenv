@@ -16,7 +16,7 @@ export PATH=/usr/local/bin:$PATH
 # Path
 #----------------------------------------------------
 # dotfiles
-export DOTFILES_PATH="$HOME/dotfiles"
+export DOTFILES_PATH="$HOME/ghq/github.com/guri3/dotfiles"
 
 # anyenv
 eval "$(anyenv init -)"
@@ -36,4 +36,8 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/krb5/lib/pkgconfig"
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/icu4c/lib/pkgconfig"
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/libedit/lib/pkgconfig"
 export PHP_BUILD_CONFIGURE_OPTS="--with-bz2=/usr/local/opt/bzip2 --with-iconv=/usr/local/opt/libiconv"
+
+# fzf
+#----------------------------------------------------
+export FZF_DEFAULT_OPTS="--reverse --height 50% --border --ansi"
 

@@ -1,11 +1,13 @@
-ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/dotfiles/.tmux ~/.tmux
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-ln -s ~/dotfiles/.zshenv ~/.zshenv
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-ln -s ~/dotfiles/.bash_profile ~/.bash_profile
-ln -s ~/dotfiles/.pryrc ~/.pryrc
-ln -s ~/dotfiles/.vim ~/.vim
-ln -s ~/dotfiles/.command.txt ~/.command.txt
+export DOTFILES_PATH="$HOME/ghq/github.com/guri3/dotfiles"
+
+ln -s $DOTFILES_PATH/.tmux.conf ~/.tmux.conf
+ln -s $DOTFILES_PATH/.tmux ~/.tmux
+ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
+ln -s $DOTFILES_PATH/.zshenv ~/.zshenv
+ln -s $DOTFILES_PATH/.zshrc ~/.zshrc
+ln -s $DOTFILES_PATH/git/.gitconfig ~/.gitconfig
+ln -s $DOTFILES_PATH/.bashrc ~/.bashrc
+ln -s $DOTFILES_PATH/.bash_profile ~/.bash_profile
+ln -s $DOTFILES_PATH/.pryrc ~/.pryrc
+ln -s $DOTFILES_PATH/.vim ~/.vim
+ln -s $DOTFILES_PATH/.command.txt ~/.command.txt

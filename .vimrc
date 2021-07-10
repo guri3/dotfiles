@@ -110,7 +110,6 @@ if has('vim_starting')
   let &t_EI .= "\e[2 q"
   let &t_SR .= "\e[4 q"
 endif
-set whichwrap=b,s,h,l,<,>,[,],~
 " 行番号のハイライト
 set cursorline
 nnoremap ss :<C-u>sp<CR>
@@ -129,6 +128,11 @@ nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
+" セミコロンとコロンを入れ替え
+nnoremap ; :
+nnoremap : ;
+vnoremap : :
+vnoremap : ;
 " 不可視文字を表示する
 set list
 set listchars=tab:\▸\-,extends:»,precedes:«,nbsp:%,trail:.

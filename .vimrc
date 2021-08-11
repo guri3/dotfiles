@@ -110,7 +110,6 @@ if has('vim_starting')
   let &t_EI .= "\e[2 q"
   let &t_SR .= "\e[4 q"
 endif
-set whichwrap=b,s,h,l,<,>,[,],~
 " 行番号のハイライト
 set cursorline
 nnoremap ss :<C-u>sp<CR>

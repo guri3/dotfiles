@@ -1,0 +1,5 @@
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+set clipboard=unnamed

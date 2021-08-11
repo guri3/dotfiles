@@ -129,6 +129,10 @@ nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
+nnoremap ; :
+nnoremap : ;
+vnoremap : :
+vnoremap : ;
 " 不可視文字を表示する
 set list
 set listchars=tab:\▸\-,extends:»,precedes:«,nbsp:%,trail:.

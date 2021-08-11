@@ -161,6 +161,9 @@ s4 () {
   tmux split-window -v -t `tmux display-message -p '#I'`.3
 }
 
+# pyenv
+eval "$(pyenv init -)"
+
 # エイリアス
 # Directory
 alias dot="cd $DOTFILES_PATH"
@@ -204,3 +207,4 @@ alias dcd='docker-compose down'
 if (which zprof > /dev/null 2>&1) ;then
   zprof
 fi
+

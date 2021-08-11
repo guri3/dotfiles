@@ -21,6 +21,11 @@ export DOTFILES_PATH="$HOME/ghq/github.com/guri3/dotfiles"
 # anyenv
 eval "$(anyenv init -)"
 
+# pyenv
+export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 # PostgreSQL
 export PGDATA=/usr/local/var/postgres
 
@@ -33,9 +38,12 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
 # php
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="/usr/local/opt/bison/bin:$PATH"
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/krb5/lib/pkgconfig"
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/icu4c/lib/pkgconfig"
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/libedit/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/zlib/lib/pkgconfig"
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/bzip2/lib/pkgconfig"
 export PHP_BUILD_CONFIGURE_OPTS="--with-bz2=/usr/local/opt/bzip2 --with-iconv=/usr/local/opt/libiconv"
 
 # fzf

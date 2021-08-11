@@ -3,6 +3,7 @@ export DOTFILES_PATH="$HOME/ghq/github.com/guri3/dotfiles"
 ln -s $DOTFILES_PATH/.tmux.conf ~/.tmux.conf
 ln -s $DOTFILES_PATH/.tmux ~/.tmux
 ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
+ln -s $DOTFILES_PATH/.ideavimrc ~/.ideavimrc
 ln -s $DOTFILES_PATH/.zshenv ~/.zshenv
 ln -s $DOTFILES_PATH/.zshrc ~/.zshrc
 ln -s $DOTFILES_PATH/git/.gitconfig ~/.gitconfig

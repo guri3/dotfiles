@@ -21,11 +21,6 @@ export DOTFILES_PATH="$HOME/ghq/github.com/guri3/dotfiles"
 # anyenv
 eval "$(anyenv init -)"
 
-# pyenv
-export PYENV_ROOT="$HOME/.anyenv/envs/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
 # PostgreSQL
 export PGDATA=/usr/local/var/postgres
 

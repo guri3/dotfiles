@@ -200,8 +200,10 @@ alias doc='docker-compose'
 alias dcb='docker-compose build'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
+# Editor
+alias c='code .'
+alias i='idea .'
 
 if (which zprof > /dev/null 2>&1) ;then
   zprof
 fi
-

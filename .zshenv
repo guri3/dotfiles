@@ -19,6 +19,7 @@ export PATH=/usr/local/bin:$PATH
 export DOTFILES_PATH="$HOME/ghq/github.com/guri3/dotfiles"
 
 # anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 # PostgreSQL
@@ -44,4 +45,3 @@ export PHP_BUILD_CONFIGURE_OPTS="--with-bz2=/usr/local/opt/bzip2 --with-iconv=/u
 # fzf
 #----------------------------------------------------
 export FZF_DEFAULT_OPTS="--reverse --height 50% --border --ansi"
-

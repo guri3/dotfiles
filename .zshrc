@@ -66,7 +66,7 @@ bindkey '^N' history-beginning-search-forward-end
 
 # コマンド検索
 function command-history-search() {
-  BUFFER=`{ history -n 1 | tail -r ; cat ~/.command.txt } | awk '!a[$0]++' | fzf`
+  BUFFER=`history -n 1 | tac | awk '!a[$0]++' | fzf`
   CURSOR=$#BUFFER
   zle reset-prompt
 }

@@ -161,6 +161,16 @@ s4 () {
   tmux split-window -v -t `tmux display-message -p '#I'`.3
 }
 
+# ssh
+if [ -f ~/.ssh-agent ]; then
+  . ~/.ssh-agent > /dev/null
+fi
+if [ -z "$SSH_AGENT_PID" ] || ! kill -0 $SSH_AGENT_PID; then
+  ssh-agent > ~/.ssh-agent
+  . ~/.ssh-agent > /dev/null
+fi
+ssh-add -l > /dev/null || ssh-add
+
 # エイリアス
 # Directory
 alias dot="cd $DOTFILES_PATH"

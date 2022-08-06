@@ -6,10 +6,10 @@
   editor = vi
   excludesfile = ~/.gitignore
   quotepath = false
-	pager = git-split-diffs --color | less -RFX
+  ager = git-split-diffs --color | less -RFX
 
 [pull]
-	rebase = false
+  rebase = false
 
 [push]
   default = simple
@@ -43,6 +43,9 @@
   k  = checkout
   km = checkout master
   kd = checkout develop
+
+  si  = switch
+  sic = switch -c
 
   fe = fetch
   fo = fetch origin
@@ -79,3 +82,4 @@
   reh1 = reset --hard HEAD~
   reh2 = reset --hard HEAD~~
   reh3 = reset --hard HEAD~~~
+

@@ -12,4 +12,5 @@ ln -s $DOTFILES_PATH/.bash_profile ~/.bash_profile
 ln -s $DOTFILES_PATH/.pryrc ~/.pryrc
 ln -s $DOTFILES_PATH/.vim ~/.vim
 ln -s $DOTFILES_PATH/.command.txt ~/.command.txt
+ln -s $DOTFILES_PATH/.git_template ~/.git_template
 

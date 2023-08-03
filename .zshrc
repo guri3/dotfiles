@@ -22,7 +22,8 @@ fi
 zplug load
 
 # 自動補完を有効にする
-autoload -Uz compinit; compinit
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
 # コマンドプロンプトに色をつける
 autoload -Uz colors; colors
 zstyle ':completion:*' verbose yes
@@ -66,7 +67,7 @@ bindkey '^N' history-beginning-search-forward-end
 
 # コマンド検索
 function command-history-search() {
-  BUFFER=`history -n 1 | tac | awk '!a[$0]++' | fzf`
+  BUFFER=`{ history -n 1 | tail -r ; cat ~/.command.txt } | awk '!a[$0]++' | fzf`
   CURSOR=$#BUFFER
   zle reset-prompt
 }
@@ -79,6 +80,8 @@ function ghq-list-search() {
   if [[ ! -z $dir ]]; then
     cd "$(ghq root)/$dir"
   fi
+  echo "\e[38;5;202m❯\e[0m\e[38;5;221m❯\e[0m\e[38;5;027m❯\e[0m cd $(ghq root)/$dir\n\n"
+  vcs_info
   zle reset-prompt
 }
 zle -N ghq-list-search
@@ -95,6 +98,37 @@ function gh-open-search() {
 }
 zle -N gh-open-search
 bindkey '^B' gh-open-search
+
+# ブランチ検索
+function fbr() {
+  local branches branch target result
+  branches=$(git --no-pager branch -vv)
+  branch=$(echo "$branches" | fzf +m)
+  target=$(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  result=$(git checkout $target 2>&1)
+  echo "\e[38;5;202m❯\e[0m\e[38;5;221m❯\e[0m\e[38;5;027m❯\e[0m git checkout $target\n$result\n\n"
+  vcs_info
+  zle reset-prompt
+}
+zle -N fbr
+bindkey '^F' fbr
+
+# git add
+function gadd() {
+  local selected
+  selected=$(unbuffer git status -s | fzf -m --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
+  if [[ -n "$selected" ]]; then
+    selected=$(echo "$selected" | tr '\n' ' ' | sed 's/ *$//')
+    local command
+    command="git add $selected"
+    echo "\e[38;5;202m❯\e[0m\e[38;5;221m❯\e[0m\e[38;5;027m❯\e[0m $command\n\n"
+    eval $command
+  fi
+  # 実行したコマンドを表示してプロンプトを更新する
+  zle reset-prompt
+}
+zle -N gadd
+bindkey '^G' gadd
 
 # <Tab> でパス名の補完候補を表示したあと、
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
@@ -140,7 +174,10 @@ function emoji {
 }
 function current_path {
 }
-precmd() { add_line; vcs_info }
+function precmd {
+  add_line
+  vcs_info
+}
 
 # プロンプト（左）
 PROMPT='$(emoji) %~ ${vcs_info_msg_0_}

@@ -22,7 +22,8 @@ fi
 zplug load
 
 # 自動補完を有効にする
-autoload -Uz compinit; compinit
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
 # コマンドプロンプトに色をつける
 autoload -Uz colors; colors
 zstyle ':completion:*' verbose yes
@@ -79,6 +80,8 @@ function ghq-list-search() {
   if [[ ! -z $dir ]]; then
     cd "$(ghq root)/$dir"
   fi
+  echo "\e[38;5;202m❯\e[0m\e[38;5;221m❯\e[0m\e[38;5;027m❯\e[0m cd $(ghq root)/$dir\n\n"
+  vcs_info
   zle reset-prompt
 }
 zle -N ghq-list-search
@@ -95,6 +98,37 @@ function gh-open-search() {
 }
 zle -N gh-open-search
 bindkey '^B' gh-open-search
+
+# ブランチ検索
+function fbr() {
+  local branches branch target result
+  branches=$(git --no-pager branch -vv)
+  branch=$(echo "$branches" | fzf +m)
+  target=$(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  result=$(git checkout $target 2>&1)
+  echo "\e[38;5;202m❯\e[0m\e[38;5;221m❯\e[0m\e[38;5;027m❯\e[0m git checkout $target\n$result\n\n"
+  vcs_info
+  zle reset-prompt
+}
+zle -N fbr
+bindkey '^F' fbr
+
+# git add
+function gadd() {
+  local selected
+  selected=$(unbuffer git status -s | fzf -m --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
+  if [[ -n "$selected" ]]; then
+    selected=$(echo "$selected" | tr '\n' ' ' | sed 's/ *$//')
+    local command
+    command="git add $selected"
+    echo "\e[38;5;202m❯\e[0m\e[38;5;221m❯\e[0m\e[38;5;027m❯\e[0m $command\n\n"
+    eval $command
+  fi
+  # 実行したコマンドを表示してプロンプトを更新する
+  zle reset-prompt
+}
+zle -N gadd
+bindkey '^G' gadd
 
 # <Tab> でパス名の補完候補を表示したあと、
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
@@ -140,7 +174,10 @@ function emoji {
 }
 function current_path {
 }
-precmd() { add_line; vcs_info }
+function precmd {
+  add_line
+  vcs_info
+}
 
 # プロンプト（左）
 PROMPT='$(emoji) %~ ${vcs_info_msg_0_}
@@ -160,6 +197,16 @@ s4 () {
   tmux split-window -v -t `tmux display-message -p '#I'`.1
   tmux split-window -v -t `tmux display-message -p '#I'`.3
 }
+
+# ssh
+if [ -f ~/.ssh-agent ]; then
+  . ~/.ssh-agent > /dev/null
+fi
+if [ -z "$SSH_AGENT_PID" ] || ! kill -0 $SSH_AGENT_PID; then
+  ssh-agent > ~/.ssh-agent
+  . ~/.ssh-agent > /dev/null
+fi
+ssh-add -l > /dev/null || ssh-add
 
 # エイリアス
 # Directory
@@ -200,8 +247,10 @@ alias doc='docker-compose'
 alias dcb='docker-compose build'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
+# Editor
+alias c='code .'
+alias i='idea .'
 
 if (which zprof > /dev/null 2>&1) ;then
   zprof
 fi
-

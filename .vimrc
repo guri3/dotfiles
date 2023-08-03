@@ -79,17 +79,14 @@ endif
 set background=dark
 colorscheme iceberg
 let g:lightline = {
-      \ 'colorscheme': 'default',
-      \ 'active': {
-      \   'left': [
-      \     ['mode', 'paste'],
-      \     ['gitbranch', 'readonly', 'filename', 'modified'],
-      \   ],
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
+  \ 'colorscheme': 'default',
+  \ 'active': {
+  \   'left': [
+  \     ['mode', 'paste'],
+  \     ['gitbranch', 'readonly', 'filename', 'modified'],
+  \   ],
+  \ },
+\ }
 
 " インデントを可視化する
 let g:indent_guides_enable_on_vim_startup = 1

@@ -19,6 +19,7 @@ export PATH=/usr/local/bin:$PATH
 export DOTFILES_PATH="$HOME/ghq/github.com/guri3/dotfiles"
 
 # anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 # PostgreSQL
@@ -33,15 +34,7 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 
 # php
 export PATH="$HOME/.composer/vendor/bin:$PATH"
-export PATH="/usr/local/opt/bison/bin:$PATH"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/krb5/lib/pkgconfig"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/icu4c/lib/pkgconfig"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/libedit/lib/pkgconfig"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/zlib/lib/pkgconfig"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/bzip2/lib/pkgconfig"
-export PHP_BUILD_CONFIGURE_OPTS="--with-bz2=/usr/local/opt/bzip2 --with-iconv=/usr/local/opt/libiconv"
 
 # fzf
 #----------------------------------------------------
 export FZF_DEFAULT_OPTS="--reverse --height 50% --border --ansi"
-

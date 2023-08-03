@@ -4,3 +4,4 @@ vendor/bundle
 tmp/
 .php-cs-fixer.cache
 _ide_helper.php
+.idea

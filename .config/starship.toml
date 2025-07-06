@@ -7,16 +7,3 @@ error_symbol = '[\$](bold red)'
 
 [docker_context]
 disabled = true
-
-[git_status]
-conflicted = 'conflicted|'
-up_to_date = 'up_to_date|'
-untracked = 'untracked|'
-stashed = 'stashed|'
-modified = 'modified|'
-staged = '[++\($count\)](green)|'
-renamed = 'renamed|'
-deleted = 'deleted|'
-ahead = '⇡${count}|'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}|'
-behind = '⇣${count}|'

@@ -27,9 +27,6 @@ export PATH="$HOME/Library/Android/sdk/emulator:$PATH"
 # Rancher Desktop
 export PATH="$HOME/.rd/bin:$PATH"
 
-# Claude Code
-export PATH="$HOME/.claude/local/node_modules/.bin:$PATH"
-
 # Initialization
 #----------------------------------------------------
 # anyenv

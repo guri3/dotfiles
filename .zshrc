@@ -89,7 +89,7 @@ function ghq-list-search() {
   if [[ ! -z $dir ]]; then
     cd "$(ghq root)/$dir"
   fi
-  echo "\e[38;5;202m❯\e[0m\e[38;5;221m❯\e[0m\e[38;5;027m❯\e[0m cd $(ghq root)/$dir\n\n"
+  echo "cd $(ghq root)/$dir\n\n"
   vcs_info
   zle reset-prompt
 }
@@ -115,7 +115,7 @@ function fbr() {
   branch=$(echo "$branches" | fzf +m)
   target=$(echo "$branch" | awk '{print $1}' | sed "s/.* //")
   result=$(git checkout $target 2>&1)
-  echo "\e[38;5;202m❯\e[0m\e[38;5;221m❯\e[0m\e[38;5;027m❯\e[0m git checkout $target\n$result\n\n"
+  echo "git checkout $target\n$result\n\n"
   vcs_info
   zle reset-prompt
 }
@@ -130,7 +130,7 @@ function gadd() {
     selected=$(echo "$selected" | tr '\n' ' ' | sed 's/ *$//')
     local command
     command="git add $selected"
-    echo "\e[38;5;202m❯\e[0m\e[38;5;221m❯\e[0m\e[38;5;027m❯\e[0m $command\n\n"
+    echo "$command\n\n"
     eval $command
   fi
   # 実行したコマンドを表示してプロンプトを更新する

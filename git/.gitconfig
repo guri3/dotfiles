@@ -85,3 +85,6 @@
   reh1 = reset --hard HEAD~
   reh2 = reset --hard HEAD~~
   reh3 = reset --hard HEAD~~~
+
+[include]
+  path = $DOTFILES_PATH/git/.gitconfig.local

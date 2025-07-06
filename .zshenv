@@ -35,6 +35,9 @@ export PATH="$HOME/.claude/local/node_modules/.bin:$PATH"
 # anyenv
 eval "$(anyenv init - zsh)"
 
+# Starship
+eval "$(starship init zsh)"
+
 # Options
 #----------------------------------------------------
 # fzf

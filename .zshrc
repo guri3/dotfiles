@@ -146,42 +146,6 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}" #add されていないファ
 zstyle ':vcs_info:*' formats "%F{cyan}%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 
-# %b ブランチ情報
-# %a アクション名(mergeなど)
-# %c changes
-# %u uncommit
-
-# プロンプト表示直前に vcs_info 呼び出し
-function add_line {
-  if [[ -z $PS1_NEWLINE_LOGIN ]]; then
-    PS1_NEWLINE_LOGIN=true
-  else
-    printf '\n'
-  fi
-}
-function emoji {
-  if [[ $? != 0 ]]; then
-    echo -n '\U1F914'
-  elif [[ $(pwd) = $HOME ]]; then
-    echo -n '\U1F3E0'
-  elif [[ $(pwd) =~ "$DOTFILES_PATH" ]]; then
-    echo -n '\U1F527'
-  elif [[ $(pwd) =~ "$HOME/ghq" ]]; then
-    echo -n '\U1F4BB'
-  else
-    echo -n '\U1F4C2'
-  fi
-}
-function current_path {
-}
-function precmd {
-  add_line
-  vcs_info
-}
-
-# プロンプト（左）
-PROMPT='$(emoji) %~ ${vcs_info_msg_0_}
-%{%F{202}%}❯%{%f%}%{%F{221}%}❯%{%f%}%{%F{027}%}❯%{%f%} '
 # tmuxのwindowを左右に分けるコマンド
 s2() {
   tmux split-window -h

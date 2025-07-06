@@ -67,7 +67,7 @@ bindkey '^N' history-beginning-search-forward-end
 
 # コマンド検索
 function command-history-search() {
-  BUFFER=`{ history -n 1 | tail -r ; cat ~/.command.txt } | awk '!a[$0]++' | fzf`
+  BUFFER=`history -n 1 | tail -r | awk '!a[$0]++' | fzf`
   CURSOR=$#BUFFER
   zle reset-prompt
 }
@@ -250,6 +250,13 @@ alias dcd='docker-compose down'
 # Editor
 alias c='code .'
 alias i='idea .'
+# Claude Code
+alias claude="$HOME/.claude/local/claude"
+
+# ローカル設定の読み込み
+if [ -f "$DOTFILES_PATH/.zshrc.local" ]; then
+  source "$DOTFILES_PATH/.zshrc.local"
+fi
 
 if (which zprof > /dev/null 2>&1) ;then
   zprof

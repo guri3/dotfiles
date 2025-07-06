@@ -7,6 +7,7 @@ ln -s $DOTFILES_PATH/.ideavimrc ~/.ideavimrc
 ln -s $DOTFILES_PATH/.zshenv ~/.zshenv
 ln -s $DOTFILES_PATH/.zshrc ~/.zshrc
 ln -s $DOTFILES_PATH/git/.gitconfig ~/.gitconfig
+ln -s $DOTFILES_PATH/git/.gitconfig.local ~/.gitconfig.local
 ln -s $DOTFILES_PATH/git/.gitignore.global ~/.gitignore
 ln -s $DOTFILES_PATH/.bashrc ~/.bashrc
 ln -s $DOTFILES_PATH/.bash_profile ~/.bash_profile

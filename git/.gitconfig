@@ -87,4 +87,4 @@
   reh3 = reset --hard HEAD~~~
 
 [include]
-  path = $DOTFILES_PATH/git/.gitconfig.local
+  path = ~/.gitconfig.local

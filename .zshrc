@@ -16,13 +16,23 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # zinit
-zinit load zsh-users/zsh-completions
-zinit load zsh-users/zsh-autosuggestions
-zinit load zsh-users/zsh-syntax-highlighting
+# プラグインの遅延読み込み（turboモード）
+zinit wait lucid for \
+  atinit"zicompinit; zicdreplay" \
+      zsh-users/zsh-completions \
+  atload"_zsh_autosuggest_start" \
+      zsh-users/zsh-autosuggestions \
+  atinit"zicompinit; zicdreplay" \
+      zsh-users/zsh-syntax-highlighting
 
 # 自動補完を有効にする
 autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
+# compinit高速化: ダンプファイルが新しければスキップ
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 # コマンドプロンプトに色をつける
 autoload -Uz colors; colors
 zstyle ':completion:*' verbose yes

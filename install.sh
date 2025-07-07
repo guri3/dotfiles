@@ -17,3 +17,6 @@ ln -s $DOTFILES_PATH/.command.txt ~/.command.txt
 ln -s $DOTFILES_PATH/.git_template ~/.git_template
 ln -s $DOTFILES_PATH/dot_config/starship.toml ~/.config/starship.toml
 ln -s $DOTFILES_PATH/dot_config/mise/config.toml ~/.config/mise/config.toml
+ln -s $DOTFILES_PATH/dot_claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -s $DOTFILES_PATH/dot_claude/commands ~/.claude/commands
+ln -s $DOTFILES_PATH/dot_claude/settings.json ~/.claude/settings.json

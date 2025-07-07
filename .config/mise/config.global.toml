@@ -1,5 +1,10 @@
 [tools]
-node = "24"
+go = "latest"
+node = "latest"
+ruby = "latest"
+
+fzf = "latest"
+jq = "latest"
+ghq = "latest"
+
 "npm:git-split-diffs" = "latest"
-go = "1.24"
-ruby = "3.4"

@@ -1,6 +1,6 @@
 # zmodload zsh/zprof && zprof
 
-# Generail
+# General
 #----------------------------------------------------
 setopt no_global_rcs
 export LANG=ja_JP.UTF-8
@@ -29,9 +29,6 @@ export PATH="$HOME/.rd/bin:$PATH"
 
 # Initialization
 #----------------------------------------------------
-# anyenv
-# eval "$(anyenv init - zsh)"
-
 # mise
 eval "$(mise activate zsh)"
 

@@ -30,7 +30,10 @@ export PATH="$HOME/.rd/bin:$PATH"
 # Initialization
 #----------------------------------------------------
 # anyenv
-eval "$(anyenv init - zsh)"
+# eval "$(anyenv init - zsh)"
+
+# mise
+eval "$(mise activate zsh)"
 
 # Starship
 eval "$(starship init zsh)"

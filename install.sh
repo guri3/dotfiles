@@ -16,3 +16,4 @@ ln -s $DOTFILES_PATH/.vim ~/.vim
 ln -s $DOTFILES_PATH/.command.txt ~/.command.txt
 ln -s $DOTFILES_PATH/.git_template ~/.git_template
 ln -s $DOTFILES_PATH/.config/starship.toml ~/.config/starship.toml
+ln -s $DOTFILES_PATH/.config/mise/config.global.toml ~/.config/mise/config.toml

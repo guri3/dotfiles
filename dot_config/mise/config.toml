@@ -4,6 +4,7 @@ node = "latest"
 python = "latest"
 ruby = "latest"
 
+aws-cli = "latest"
 fzf = "latest"
 jq = "latest"
 ghq = "latest"

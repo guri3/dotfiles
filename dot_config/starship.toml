@@ -7,3 +7,9 @@ error_symbol = '[\$](bold red)'
 
 [docker_context]
 disabled = true
+
+[nodejs]
+disabled = true
+
+[php]
+disabled = true

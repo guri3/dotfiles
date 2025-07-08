@@ -5,6 +5,7 @@ python = "latest"
 ruby = "latest"
 
 aws-cli = "latest"
+aws-vault = "latest"
 fzf = "latest"
 jq = "latest"
 ghq = "latest"

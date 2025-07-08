@@ -143,18 +143,6 @@ bindkey '^G' gadd
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
 zstyle ':completion:*:default' menu select=1
 
-# VCSの情報を取得するzsh関数
-autoload -Uz vcs_info
-
-# PROMPT変数内で変数参照
-setopt prompt_subst
-
-zstyle ':vcs_info:git:*' check-for-changes true #formats 設定項目で %c,%u が使用可
-zstyle ':vcs_info:git:*' stagedstr "%F{green}" #commit されていないファイルがある
-zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}" #add されていないファイルがある
-zstyle ':vcs_info:*' formats "%F{cyan}%c%u(%b)%f" #通常
-zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
-
 # tmuxのwindowを左右に分けるコマンド
 s2() {
   tmux split-window -h

@@ -12,7 +12,7 @@
       "Bash(tmux rename-window:*)",
       "Read(~/ghq/**)",
       "WebFetch(domain:docs.anthropic.com)",
-      "WebFetch(domain:github.com)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": [
       "Bash(rm -rf /)",

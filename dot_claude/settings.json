@@ -90,6 +90,21 @@
   },
   "includeCoAuthoredBy": false,
   "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path' | xargs -S 1000 -I {} sh -c '[ -n \"$(tail -c1 {})\" ] && echo >> {}'"
+          },
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path' | xargs sed -i '' -e 's/[[:space:]]*$//'"
+          }
+        ]
+      }
+    ],
     "Notification": [
       {
         "matcher": "",

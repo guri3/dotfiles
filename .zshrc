@@ -139,6 +139,46 @@ function gadd() {
 zle -N gadd
 bindkey '^G' gadd
 
+# git worktree add
+function gwa() {
+  local branch
+  branch=$(git branch | fzf | sed -e 's/^\* //g' | sed -e 's/^ *//g')
+  if [[ -n "$branch" ]]; then
+    local repo_name=$(basename $(git rev-parse --show-toplevel))
+    local worktree_path="~/worktree/${repo_name}-${branch}"
+    local command="git worktree add $worktree_path $branch"
+    echo "$command\n"
+    eval $command
+    # シンボリックリンクを作成
+    local expanded_path=$(eval echo $worktree_path)
+    cd "$expanded_path"
+    ln -s ~/.claude/.guri3 .
+    echo "Created symlink: ~/.claude/.guri3 -> .\n"
+    cd -
+  fi
+}
+
+# git worktree remove
+function gwr() {
+  local worktree
+  worktree=$(git worktree list | fzf | awk '{print $1}')
+  if [[ -n "$worktree" ]]; then
+    local command="git worktree remove $worktree"
+    echo "$command\n"
+    eval $command
+  fi
+}
+
+# git wokrtree cd
+function gwc() {
+  local worktree
+  worktree=$(git worktree list | fzf | awk '{print $1}')
+  if [[ -n "$worktree" ]]; then
+    cd "$worktree"
+    echo "cd $worktree\n"
+  fi
+}
+
 # <Tab> でパス名の補完候補を表示したあと、
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
 zstyle ':completion:*:default' menu select=1

@@ -10,4 +10,5 @@ fzf = "latest"
 jq = "latest"
 ghq = "latest"
 
+"npm:ccusage" = "latest"
 "npm:git-split-diffs" = "latest"

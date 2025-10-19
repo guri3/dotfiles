@@ -10,6 +10,7 @@ export EDITOR=vim
 #----------------------------------------------------
 # local
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Homebrew (Apple Silicon)
 export PATH="/opt/homebrew/bin:$PATH"

@@ -252,7 +252,6 @@ alias dcd='docker-compose down'
 alias c='code .'
 alias i='idea .'
 # Claude Code
-alias claude="~/.claude/local/claude"
 
 # ローカル設定の読み込み
 if [ -f "$DOTFILES_PATH/.zshrc.local" ]; then

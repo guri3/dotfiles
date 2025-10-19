@@ -12,3 +12,5 @@ ghq = "latest"
 
 "npm:ccusage" = "latest"
 "npm:git-split-diffs" = "latest"
+"npm:yarn" = "latest"
+"npm:@openai/codex" = "latest"

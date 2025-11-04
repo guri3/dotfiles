@@ -14,3 +14,6 @@ ghq = "latest"
 "npm:git-split-diffs" = "latest"
 "npm:yarn" = "latest"
 "npm:@openai/codex" = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]

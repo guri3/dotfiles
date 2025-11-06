@@ -1,4 +1,16 @@
 model_reasoning_effort = "medium"
-notify = ["bash", "-lc", "afplay /System/Library/Sounds/Funk.aiff"]
+notify = [
+    "bash",
+    "-lc",
+    "afplay /System/Library/Sounds/Funk.aiff",
+]
 sandbox_mode = "workspace-write"
 web_search_request = true
+
+[mcp_servers.vibe_kanban]
+args = [
+    "-y",
+    "vibe-kanban@0.0.111",
+    "--mcp",
+]
+command = "npx"

@@ -10,10 +10,11 @@ fzf = "latest"
 jq = "latest"
 ghq = "latest"
 
-"npm:ccusage" = "latest"
-"npm:git-split-diffs" = "latest"
-"npm:yarn" = "latest"
-"npm:@openai/codex" = "latest"
+"npm:ccusage" = "17.1.3"
+"npm:git-split-diffs" = "2.3.0"
+"npm:yarn" = "1.22.22"
+"npm:@openai/codex" = "0.53.0"
+"npm:vibe-kanban" = "0.0.111"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]

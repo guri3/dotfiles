@@ -169,6 +169,181 @@ function gwr() {
   fi
 }
 
+# git worktree borrow
+function gws() {
+  local repo_root selection worktree_path borrowed_branch current_branch tmp_branch state_file stash_hash stash_ref stash_message checkout_output
+  repo_root=$(command git rev-parse --show-toplevel 2>/dev/null) || { echo "gitリポジトリ内で実行してください。"; return 1; }
+
+  state_file="${repo_root}/.git/worktree-switch-state"
+  if [[ -f "$state_file" ]]; then
+    echo "既に退避中のworktreeがあります。先にgwsrで復元してください。"
+    return 1
+  fi
+
+  selection=$(
+    command git worktree list --porcelain | awk '
+      /^worktree / { wt=$0; sub(/^worktree /,"", wt) }
+      /^branch / { br=$0; sub(/^branch refs\/heads\//,"", br) }
+      /^detached/ { br="" }
+      /^$/ {
+        if (wt != "" && br != "") {
+          printf "%s\t%s\n", wt, br
+        }
+        wt=""; br=""
+      }
+      END {
+        if (wt != "" && br != "") {
+          printf "%s\t%s\n", wt, br
+        }
+      }
+    ' | fzf --with-nth=1,2 --delimiter=$'\t' --prompt='worktree> ' --height=40%
+  )
+
+  if [[ -z "$selection" ]]; then
+    echo "worktreeの選択をキャンセルしました。"
+    return 1
+  fi
+
+  worktree_path="${selection%%$'\t'*}"
+  borrowed_branch="${selection##*$'\t'}"
+
+  if [[ "$worktree_path" == "$repo_root" ]]; then
+    echo "現在のworktreeは選択できません。"
+    return 1
+  fi
+
+  current_branch=$(command git rev-parse --abbrev-ref HEAD)
+  if [[ "$current_branch" == "$borrowed_branch" ]]; then
+    echo "${borrowed_branch}は既にチェックアウトされています。"
+    return 0
+  fi
+
+  tmp_branch="worktree-tmp/${borrowed_branch//\//-}-$(command date +%Y%m%d%H%M%S)"
+
+  if ! command git -C "$worktree_path" checkout -b "$tmp_branch"; then
+    echo "worktreeの退避に失敗しました。"
+    return 1
+  fi
+
+  if [[ -n "$(command git status --porcelain)" ]]; then
+    stash_message="gws-auto-stash $(command date +%Y%m%d%H%M%S)"
+    if ! command git stash push -u -m "$stash_message" >/dev/null; then
+      command git -C "$worktree_path" checkout "$borrowed_branch" >/dev/null 2>&1
+      command git -C "$worktree_path" branch -D "$tmp_branch" >/dev/null 2>&1
+      echo "作業中の変更をstashに退避できませんでした。"
+      return 1
+    fi
+    stash_hash=$(command git rev-parse --verify stash@{0} 2>/dev/null)
+    if [[ -n "$stash_hash" ]]; then
+      stash_ref=$(command git stash list --format='%H %gd' | awk -v hash="$stash_hash" '$1 == hash { print $2; exit }')
+      if [[ -n "$stash_ref" ]]; then
+        printf "作業中の変更を%sに退避しました。\n" "$stash_ref"
+      else
+        printf "作業中の変更をstashに退避しました。\n"
+      fi
+    fi
+  fi
+
+  if ! checkout_output=$(command git checkout "$borrowed_branch" 2>&1); then
+    if [[ -n "$stash_hash" ]]; then
+      stash_ref=$(command git stash list --format='%H %gd' | awk -v hash="$stash_hash" '$1 == hash { print $2; exit }')
+      if [[ -n "$stash_ref" ]]; then
+        command git stash pop "$stash_ref" >/dev/null 2>&1 || printf "退避した変更(%s)の復元に失敗しました。手動でpopしてください。\n" "$stash_ref"
+      fi
+    fi
+    command git -C "$worktree_path" checkout "$borrowed_branch" >/dev/null 2>&1
+    command git -C "$worktree_path" branch -D "$tmp_branch" >/dev/null 2>&1
+    printf "%s\n" "$checkout_output"
+    printf "%sへの切り替えに失敗しました。\n" "$borrowed_branch"
+    return 1
+  fi
+
+  if [[ -n "$checkout_output" ]]; then
+    printf "%s\n" "$checkout_output"
+  fi
+
+  {
+    printf "worktree_path=%q\n" "$worktree_path"
+    printf "borrowed_branch=%q\n" "$borrowed_branch"
+    printf "tmp_branch=%q\n" "$tmp_branch"
+    printf "previous_branch=%q\n" "$current_branch"
+    printf "stash_hash=%q\n" "$stash_hash"
+  } >| "$state_file"
+
+  printf "%sを%sに退避し、%sへ切り替えました。\n" "$worktree_path" "$tmp_branch" "$borrowed_branch"
+}
+
+# git worktree restore
+function gwsr() {
+  local repo_root state_file worktree_path borrowed_branch tmp_branch previous_branch current_branch delete_output stash_hash stash_ref restored_branch
+  repo_root=$(command git rev-parse --show-toplevel 2>/dev/null) || { echo "gitリポジトリ内で実行してください。"; return 1; }
+
+  state_file="${repo_root}/.git/worktree-switch-state"
+  if [[ ! -f "$state_file" ]]; then
+    echo "退避中のworktreeはありません。"
+    return 1
+  fi
+
+  source "$state_file"
+
+  if [[ -z "$worktree_path" || -z "$borrowed_branch" || -z "$tmp_branch" || -z "$previous_branch" ]]; then
+    echo "退避情報の読み込みに失敗しました。"
+    return 1
+  fi
+
+  if [[ ! -d "$worktree_path" ]]; then
+    echo "退避したworktreeのディレクトリが存在しません: $worktree_path"
+    return 1
+  fi
+
+  current_branch=$(command git rev-parse --abbrev-ref HEAD)
+  restored_branch=0
+  if [[ "$current_branch" == "$borrowed_branch" ]]; then
+    if ! command git checkout "$previous_branch"; then
+      echo "元のブランチ(${previous_branch})への切り替えに失敗しました。"
+      return 1
+    fi
+    restored_branch=1
+  else
+    echo "現在のブランチは${current_branch}です。${previous_branch}への切り替えはスキップします。"
+  fi
+
+  if ! command git -C "$worktree_path" checkout "$borrowed_branch"; then
+    echo "worktreeのブランチを${borrowed_branch}に戻せませんでした。"
+    return 1
+  fi
+
+  if command git show-ref --verify --quiet "refs/heads/$tmp_branch"; then
+    if ! delete_output=$(command git branch -d "$tmp_branch" 2>&1); then
+      echo "$delete_output"
+      echo "一時ブランチ${tmp_branch}の削除に失敗しました。必要であれば手動で削除してください。"
+    fi
+  fi
+
+  if [[ -n "$stash_hash" ]]; then
+    stash_ref=$(command git stash list --format='%H %gd' | awk -v hash="$stash_hash" '$1 == hash { print $2; exit }')
+    if [[ -n "$stash_ref" ]]; then
+      if [[ "$restored_branch" -eq 1 ]]; then
+        if command git stash apply "$stash_ref" >/dev/null; then
+          command git stash drop "$stash_ref" >/dev/null
+          printf "自動退避した変更(%s)を復元しました。\n" "$stash_ref"
+        else
+          printf "自動退避した変更(%s)の適用に失敗しました。手動で対応してください。\n" "$stash_ref"
+        fi
+      else
+        printf "自動退避した変更(%s)が残っています。適切なブランチで手動適用してください。\n" "$stash_ref"
+      fi
+    else
+      printf "自動退避した変更が見つかりませんでした。既に手動で適用済みかもしれません。\n"
+    fi
+  fi
+
+  printf "%sをworktree(%s)に戻しました。\n" "$borrowed_branch" "$worktree_path"
+
+  command rm -f "$state_file"
+  unset worktree_path borrowed_branch tmp_branch previous_branch stash_hash stash_ref restored_branch current_branch
+}
+
 # git wokrtree cd
 function gwc() {
   local worktree

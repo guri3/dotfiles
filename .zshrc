@@ -105,8 +105,6 @@ function gh-open-search() {
     zle reset-prompt
   fi
 }
-zle -N gh-open-search
-bindkey '^B' gh-open-search
 
 # ブランチ検索
 function fbr() {
@@ -272,6 +270,8 @@ function gws() {
 
   printf "%sを%sに退避し、%sへ切り替えました。\n" "$worktree_path" "$tmp_branch" "$borrowed_branch"
 }
+zle -N gws
+bindkey '^B' gws
 
 # git worktree restore
 function gwsr() {

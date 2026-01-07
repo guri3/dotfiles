@@ -120,23 +120,6 @@ function fbr() {
 zle -N fbr
 bindkey '^F' fbr
 
-# git add
-function gadd() {
-  local selected
-  selected=$(unbuffer git status -s | fzf -m --preview="echo {} | awk '{print \$2}' | xargs git diff --color" | awk '{print $2}')
-  if [[ -n "$selected" ]]; then
-    selected=$(echo "$selected" | tr '\n' ' ' | sed 's/ *$//')
-    local command
-    command="git add $selected"
-    echo "$command\n\n"
-    eval $command
-  fi
-  # 実行したコマンドを表示してプロンプトを更新する
-  zle reset-prompt
-}
-zle -N gadd
-bindkey '^G' gadd
-
 # git worktree add
 function gwa() {
   local branch
@@ -387,7 +370,7 @@ ssh-add -l > /dev/null || ssh-add
 # エイリアス
 # Directory
 alias dot="cd $DOTFILES_PATH"
-alias dotv="code $DOTFILES_PATH"
+alias dote="c $DOTFILES_PATH"
 alias goc='cd $GOPATH/src/github.com/guri3'
 # General
 alias ls='ls -G'
@@ -424,7 +407,8 @@ alias dcb='docker-compose build'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
 # Editor
-alias c='code .'
+# alias c='code .'
+alias c='cursor .'
 alias i='idea .'
 # Claude Code
 

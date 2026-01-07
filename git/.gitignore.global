@@ -5,6 +5,7 @@ tmp/
 .php-cs-fixer.cache
 _ide_helper.php
 .idea/
+.vscode/
 .clinerules
 .cursor/
 .cursorrules
@@ -12,3 +13,4 @@ _ide_helper.php
 .claude/
 GEMINI.md
 AGENTS.md
+mise.toml

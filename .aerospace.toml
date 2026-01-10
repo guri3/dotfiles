@@ -229,7 +229,7 @@ run = 'move-node-to-workspace G'
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = ['move-node-to-workspace S', 'macos-native-fullscreen']
+run = ['move-node-to-workspace S']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Terminal'

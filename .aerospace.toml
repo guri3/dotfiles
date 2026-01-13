@@ -10,7 +10,7 @@ config-version = 2
 after-startup-command = []
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -234,6 +234,10 @@ run = ['move-node-to-workspace S']
 [[on-window-detected]]
 if.app-id = 'com.apple.Terminal'
 run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
 
 [workspace-to-monitor-force-assignment]
     C = ['DELL U2520D', 'secondary']

@@ -239,6 +239,10 @@ run = 'move-node-to-workspace T'
 if.app-id = 'com.apple.finder'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.tinyapp.TablePlus'
+run = 'layout floating'
+
 [workspace-to-monitor-force-assignment]
     C = ['DELL U2520D', 'secondary']
     S = 'Sidecar Display (AirPlay)'

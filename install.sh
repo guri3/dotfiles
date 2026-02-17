@@ -25,4 +25,6 @@ ln -s $DOTFILES_PATH/dot_claude/commands ~/.claude/commands
 ln -s $DOTFILES_PATH/dot_claude/settings.json ~/.claude/settings.json
 # Cursor
 ln -s $DOTFILES_PATH/dot_cursor/AGENTS.md ~/.cursor/AGENTS.md
+ln -s $DOTFILES_PATH/dot_cursor/agents ~/.cursor/agents
 ln -s $DOTFILES_PATH/dot_cursor/commands ~/.cursor/commands
+ln -s $DOTFILES_PATH/dot_cursor/skills ~/.cursor/skills

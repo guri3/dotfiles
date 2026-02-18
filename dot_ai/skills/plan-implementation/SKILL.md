@@ -28,7 +28,7 @@ description: 実装計画を立てるためのスキル。事前調査、仕様�
 
 **実行方法**: `preliminary-research`サブエージェントを呼び出して実行する。サブエージェントは要件の理解、技術調査、リスクの洗い出し、調査結果のまとめを実行する。
 
-**出力**: `.guri3/plan/<プロジェクト名>/preliminary-research.md`
+**出力**: `.guri3/plan/<プロジェクト名>/01_preliminary-research.md`
 
 ### ステップ2: 仕様書作成
 
@@ -36,11 +36,11 @@ description: 実装計画を立てるためのスキル。事前調査、仕様�
 
 **サブエージェント**: `specification`
 
-**前提条件**: `.guri3/plan/<プロジェクト名>/preliminary-research.md`が存在すること
+**前提条件**: `.guri3/plan/<プロジェクト名>/01_preliminary-research.md`が存在すること
 
 **実行方法**: `specification`サブエージェントを呼び出して実行する。サブエージェントは事前調査の確認、機能仕様の定義、非機能要件の定義、仕様書の作成を実行する。サブエージェントには出力先ディレクトリパスを明示的に伝える。
 
-**出力**: `.guri3/plan/<プロジェクト名>/specification.md`
+**出力**: `.guri3/plan/<プロジェクト名>/02_specification.md`
 
 ### ステップ3: 詳細設計書作成
 
@@ -48,11 +48,11 @@ description: 実装計画を立てるためのスキル。事前調査、仕様�
 
 **サブエージェント**: `detailed-design`
 
-**前提条件**: `.guri3/plan/<プロジェクト名>/specification.md`が存在すること
+**前提条件**: `.guri3/plan/<プロジェクト名>/02_specification.md`が存在すること
 
 **実行方法**: `detailed-design`サブエージェントを呼び出して実行する。サブエージェントは仕様書の確認、アーキテクチャの設計、詳細設計、実装計画の策定、詳細設計書の作成を実行する。サブエージェントには出力先ディレクトリパスを明示的に伝える。
 
-**出力**: `.guri3/plan/<プロジェクト名>/detailed-design.md`
+**出力**: `.guri3/plan/<プロジェクト名>/03_detailed-design.md`
 
 ## 実行手順
 
@@ -65,33 +65,33 @@ description: 実装計画を立てるためのスキル。事前調査、仕様�
 
 ### ステップ1の実行: 事前調査のサブエージェントを呼び出す
 
-- 出力先パスを`.guri3/plan/<プロジェクト名>/preliminary-research.md`として決定する
+- 出力先パスを`.guri3/plan/<プロジェクト名>/01_preliminary-research.md`として決定する
 - `preliminary-research`サブエージェントを呼び出し、出力先パスを明示的に伝える
-- サブエージェントが `.guri3/plan/<プロジェクト名>/preliminary-research.md` を生成するまで待つ
+- サブエージェントが `.guri3/plan/<プロジェクト名>/01_preliminary-research.md` を生成するまで待つ
 - 生成されたファイルの存在を確認する
 
 ### ステップ2の実行: 仕様書作成のサブエージェントを呼び出す
 
-- `.guri3/plan/<プロジェクト名>/preliminary-research.md` が存在することを確認する
-- 出力先パスを`.guri3/plan/<プロジェクト名>/specification.md`として決定する
+- `.guri3/plan/<プロジェクト名>/01_preliminary-research.md` が存在することを確認する
+- 出力先パスを`.guri3/plan/<プロジェクト名>/02_specification.md`として決定する
 - `specification`サブエージェントを呼び出し、出力先パスを明示的に伝える
-- サブエージェントが `.guri3/plan/<プロジェクト名>/specification.md` を生成するまで待つ
+- サブエージェントが `.guri3/plan/<プロジェクト名>/02_specification.md` を生成するまで待つ
 - 生成されたファイルの存在を確認する
 
 ### ステップ3の実行: 詳細設計書作成のサブエージェントを呼び出す
 
-- `.guri3/plan/<プロジェクト名>/specification.md` が存在することを確認する
-- 出力先パスを`.guri3/plan/<プロジェクト名>/detailed-design.md`として決定する
+- `.guri3/plan/<プロジェクト名>/02_specification.md` が存在することを確認する
+- 出力先パスを`.guri3/plan/<プロジェクト名>/03_detailed-design.md`として決定する
 - `detailed-design`サブエージェントを呼び出し、出力先パスを明示的に伝える
-- サブエージェントが `.guri3/plan/<プロジェクト名>/detailed-design.md` を生成するまで待つ
+- サブエージェントが `.guri3/plan/<プロジェクト名>/03_detailed-design.md` を生成するまで待つ
 - 生成されたファイルの存在を確認する
 
 ### 完了確認
 
 3つのドキュメントがすべて生成されていることを確認する
-- `.guri3/plan/<プロジェクト名>/preliminary-research.md` の存在を確認
-- `.guri3/plan/<プロジェクト名>/specification.md` の存在を確認
-- `.guri3/plan/<プロジェクト名>/detailed-design.md` の存在を確認
+- `.guri3/plan/<プロジェクト名>/01_preliminary-research.md` の存在を確認
+- `.guri3/plan/<プロジェクト名>/02_specification.md` の存在を確認
+- `.guri3/plan/<プロジェクト名>/03_detailed-design.md` の存在を確認
 
 ## 重要な原則
 
@@ -117,6 +117,6 @@ description: 実装計画を立てるためのスキル。事前調査、仕様�
 
 すべての出力ファイルは`.guri3/plan/<プロジェクト名>/`ディレクトリに生成される。
 
-- `.guri3/plan/<プロジェクト名>/preliminary-research.md`: 事前調査の結果
-- `.guri3/plan/<プロジェクト名>/specification.md`: 機能仕様書
-- `.guri3/plan/<プロジェクト名>/detailed-design.md`: 詳細設計書
+- `.guri3/plan/<プロジェクト名>/01_preliminary-research.md`: 事前調査の結果
+- `.guri3/plan/<プロジェクト名>/02_specification.md`: 機能仕様書
+- `.guri3/plan/<プロジェクト名>/03_detailed-design.md`: 詳細設計書

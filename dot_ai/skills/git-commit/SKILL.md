@@ -1,3 +1,8 @@
+---
+name: git-commit
+description: これまでの作業内容に適切なコメントをつけてcommit、pushする。
+---
+
 # git commit and push
 
 これまでの作業内容に適切なコメントをつけてcommit、pushする

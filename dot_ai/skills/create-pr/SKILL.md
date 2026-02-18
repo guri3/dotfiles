@@ -1,3 +1,8 @@
+---
+name: create-pr
+description: 現状の作業ブランチのPull Request（PR）を作成する。
+---
+
 # Pull Request（PR）の作成
 
 現状の作業ブランチのPRを作成する

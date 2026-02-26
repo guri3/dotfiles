@@ -21,6 +21,7 @@ ln -s $DOTFILES_PATH/dot_codex/AGENTS.md ~/.codex/AGENTS.md
 ln -s $DOTFILES_PATH/dot_codex/config.toml ~/.codex/config.toml
 # Claude
 ln -s $DOTFILES_PATH/dot_claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -s $DOTFILES_PATH/dot_claude/hooks ~/.claude/hooks
 ln -s $DOTFILES_PATH/dot_claude/skills ~/.claude/skills
 ln -s $DOTFILES_PATH/dot_claude/settings.json ~/.claude/settings.json
 # Cursor

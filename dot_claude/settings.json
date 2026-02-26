@@ -1,8 +1,34 @@
 {
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "command": "bash $HOME/.claude/hooks/notify.sh",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "bash $HOME/.claude/hooks/notify.sh",
+            "type": "command"
+          }
+        ]
+      }
+    ]
+  },
   "includeCoAuthoredBy": false,
+  "language": "日本語",
+  "model": "opusplan",
   "permissions": {
     "allow": [
       "Bash(afplay:*)",
+      "Bash(basename:*)",
+      "Bash(echo:*)",
       "Bash(find:*)",
       "Bash(gh:*)",
       "Bash(git:*)",
@@ -82,7 +108,5 @@
       "Write(/etc/shadow)",
       "Write(/etc/sudoers)"
     ]
-  },
-  "model": "opusplan",
-  "language": "日本語"
+  }
 }

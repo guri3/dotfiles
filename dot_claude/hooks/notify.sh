@@ -37,4 +37,8 @@ else
 fi
 
 osascript -e "display notification \"$MESSAGE\" with title \"$TITLE\""
-afplay /System/Library/Sounds/Glass.aiff &
+if [ "$HOOK_EVENT" = "Notification" ]; then
+  afplay /System/Library/Sounds/Ping.aiff &
+else
+  afplay /System/Library/Sounds/Glass.aiff &
+fi

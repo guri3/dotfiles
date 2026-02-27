@@ -120,5 +120,8 @@
     ]
   },
   "language": "日本語",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "enabledPlugins": {
+    "example-skills@anthropic-agent-skills": true
+  }
 }

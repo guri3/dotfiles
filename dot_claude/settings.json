@@ -107,6 +107,16 @@
             "command": "agentoast hook claude"
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/iterm-tab-title.sh",
+            "async": true
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -118,12 +128,23 @@
             "command": "~/.claude/scripts/deny-check.sh"
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/iterm-tab-title.sh",
+            "async": true
+          }
+        ]
       }
     ]
   },
-  "language": "日本語",
-  "skipDangerousModePermissionPrompt": true,
   "enabledPlugins": {
-    "example-skills@anthropic-agent-skills": true
-  }
+    "example-skills@anthropic-agent-skills": true,
+    "slack@claude-plugins-official": true
+  },
+  "language": "日本語",
+  "skipDangerousModePermissionPrompt": true
 }

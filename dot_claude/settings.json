@@ -113,7 +113,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/iterm-tab-title.sh"
+            "command": "~/.claude/hooks/iterm-tab-title.sh",
+            "async": true
           }
         ]
       }
@@ -133,7 +134,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/iterm-tab-title.sh"
+            "command": "~/.claude/hooks/iterm-tab-title.sh",
+            "async": true
           }
         ]
       }

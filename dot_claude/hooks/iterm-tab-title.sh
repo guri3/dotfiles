@@ -1,7 +1,5 @@
 #!/bin/bash
-# Claude Codeの作業状況に応じてターミナルのタブタイトルを変更する
-# tmux環境: tmux rename-window
-# iTerm2直接: OSC エスケープシーケンス
+# iTerm2のタブタイトルをClaude Codeの作業状況に応じて変更する
 
 INPUT=$(cat)
 
@@ -16,12 +14,7 @@ print(d.get('$field', '$default'))
 }
 
 set_tab_title() {
-  local title="$1"
-  if [ -n "$TMUX" ]; then
-    tmux rename-window "$title"
-  else
-    printf '\033]1;%s\007' "$title" > /dev/tty 2>/dev/null || true
-  fi
+  printf '\033]1;%s\007' "$1" > /dev/tty 2>/dev/null || true
 }
 
 CWD=$(get_field "cwd" "")
@@ -45,7 +38,10 @@ case "$HOOK_EVENT" in
   PreToolUse)
     set_tab_title "● $CONTEXT | $TOOL_NAME"
     ;;
-  Stop|*)
+  Stop)
+    set_tab_title "○ $CONTEXT"
+    ;;
+  *)
     set_tab_title "○ $CONTEXT"
     ;;
 esac

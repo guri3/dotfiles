@@ -89,39 +89,22 @@
   "hooks": {
     "Notification": [
       {
-        "matcher": "permission_prompt",
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "bash $HOME/.claude/hooks/notify.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "auth_success",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOME/.claude/hooks/notify.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "elicitation_dialog",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOME/.claude/hooks/notify.sh"
+            "command": "agentoast hook claude"
           }
         ]
       }
     ],
     "Stop": [
       {
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "bash $HOME/.claude/hooks/notify.sh"
+            "command": "agentoast hook claude"
           }
         ]
       }

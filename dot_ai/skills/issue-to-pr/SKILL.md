@@ -138,9 +138,9 @@ gh api repos/<owner>/<repo>/issues/<issue_number>/comments \
   --field body="## タスク分解\n\n### サブIssue\n- [ ] #<sub_issue_number> <タイトル>\n\n### チェックリスト\n- [ ] <タスク1>\n- [ ] <タスク2>\n\n---\nこのコメントはClaude Code（claude-sonnet-4-6）によって生成されました。"
 ```
 
-### フェーズ3: GitHubプロジェクトへの割り当て
+### フェーズ3: GitHubプロジェクトへの割り当てとStatus設定
 
-IssueをGitHubプロジェクトに追加する。
+IssueをGitHubプロジェクトに追加し、適切なStatusを設定する。
 
 **プロジェクト一覧の取得**:
 
@@ -154,6 +154,47 @@ gh project list --owner <org_name>
 ```bash
 gh project item-add <project_number> --owner <owner> --url <issue_url>
 ```
+
+**Statusフィールドの取得と設定**:
+
+プロジェクトのStatusフィールドと利用可能なオプションを取得する。
+
+```bash
+# プロジェクトIDを取得
+project_id=$(gh project list --owner <owner> --format json | jq -r '.projects[] | select(.number == <project_number>) | .id')
+
+# Statusフィールドの情報を取得
+status_field=$(gh project field-list <project_number> --owner <owner> --format json | jq '.fields[] | select(.name == "Status")')
+status_field_id=$(echo "$status_field" | jq -r '.id')
+
+# 利用可能なStatusオプションを表示
+echo "$status_field" | jq -r '.options[] | .name'
+```
+
+取得したStatusオプションの一覧をユーザーに提示し、このフェーズで設定すべき適切なStatusを選択する。
+一般的には `Todo` や `Backlog` が適切だが、プロジェクトのオプションに依存するためユーザーに確認する。
+
+```bash
+# 選択したStatusのoption_idを取得して設定
+item_id=$(gh project item-list <project_number> --owner <owner> --format json | \
+  jq -r '.items[] | select(.content.url == "<issue_url>") | .id')
+option_id=$(echo "$status_field" | jq -r '.options[] | select(.name == "<選択したStatus>") | .id')
+
+gh project item-edit \
+  --project-id "$project_id" \
+  --id "$item_id" \
+  --field-id "$status_field_id" \
+  --single-select-option-id "$option_id"
+```
+
+後続フェーズで参照できるよう、以下の値を保持しておく。
+
+- `project_id`: プロジェクトのID
+- `project_number`: プロジェクト番号
+- `project_owner`: プロジェクトのオーナー
+- `item_id`: プロジェクト内のアイテムID
+- `status_field_id`: StatusフィールドのID
+- `status_field_options`: 利用可能なStatusオプション（name → id のマッピング）
 
 ### フェーズ4: 実装計画の作成
 
@@ -248,10 +289,26 @@ GitHub上でご確認ください：
 
 ユーザーの承認後、実装を進める。各サブタスクは独立したサブエージェントに移譲する。
 
-#### ステップ6-1: ブランチ作成
+#### ステップ6-1: ブランチ作成とStatus更新
 
 ```bash
 git checkout -b issue-<issue_number>-<issue_slug>
+```
+
+実装開始時にプロジェクトのStatusを「In Progress」相当の値に更新する。フェーズ3で保持した値を使用する。
+
+```bash
+# "In Progress" に対応するoption_idを取得して設定
+in_progress_option_id=$(echo "$status_field_options" | jq -r '.[] | select(.name == "In Progress") | .id')
+
+# "In Progress" が存在しない場合は類似の名前を探す（"進行中", "Doing" など）
+# 見つからない場合はユーザーに確認する
+
+gh project item-edit \
+  --project-id "$project_id" \
+  --id "$item_id" \
+  --field-id "$status_field_id" \
+  --single-select-option-id "$in_progress_option_id"
 ```
 
 実装開始をIssueにコメントとして記録する。
@@ -343,6 +400,26 @@ gh pr create --draft \
 - PRの本文に `Closes #<issue_number>` を含めてIssueと紐付ける
 - ベースブランチは `gh repo view --json defaultBranchRef` で確認する
 - 作業中を表すラベルがあれば付与する（`gh label list` で確認）
+
+**PR作成後のStatus更新**:
+
+PR作成が完了したら、プロジェクトのStatusを「In Review」相当の値に更新する。
+
+```bash
+# "In Review" に対応するoption_idを取得して設定
+in_review_option_id=$(echo "$status_field_options" | jq -r '.[] | select(.name == "In Review") | .id')
+
+# "In Review" が存在しない場合は類似の名前を探す（"Review", "レビュー中" など）
+# 見つからない場合は "In Progress" のままにする
+
+if [ -n "$in_review_option_id" ]; then
+  gh project item-edit \
+    --project-id "$project_id" \
+    --id "$item_id" \
+    --field-id "$status_field_id" \
+    --single-select-option-id "$in_review_option_id"
+fi
+```
 
 完了後、作成したPRのURLを出力する。
 

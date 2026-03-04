@@ -107,16 +107,6 @@
             "command": "agentoast hook claude"
           }
         ]
-      },
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/iterm-tab-title.sh",
-            "async": true
-          }
-        ]
       }
     ],
     "PreToolUse": [
@@ -126,16 +116,6 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/deny-check.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/iterm-tab-title.sh",
-            "async": true
           }
         ]
       }

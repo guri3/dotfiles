@@ -117,7 +117,7 @@
             "async": true
           }
         ]
-},
+      },
       {
         "matcher": "",
         "hooks": [
@@ -138,7 +138,7 @@
             "command": "~/.claude/scripts/deny-check.sh"
           }
         ]
-},
+      },
       {
         "matcher": "",
         "hooks": [
@@ -156,5 +156,8 @@
     "slack@claude-plugins-official": true
   },
   "language": "日本語",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
 }

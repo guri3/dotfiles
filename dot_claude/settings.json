@@ -94,6 +94,11 @@
           {
             "type": "command",
             "command": "agentoast hook claude"
+          },
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Ping.aiff",
+            "async": true
           }
         ]
       }
@@ -105,6 +110,11 @@
           {
             "type": "command",
             "command": "agentoast hook claude"
+          },
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff",
+            "async": true
           }
         ]
 },

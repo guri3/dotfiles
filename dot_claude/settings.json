@@ -107,6 +107,16 @@
             "command": "agentoast hook claude"
           }
         ]
+},
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/tmux-rename-window.sh",
+            "async": true
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -116,6 +126,16 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/deny-check.sh"
+          }
+        ]
+},
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/tmux-rename-window.sh",
+            "async": true
           }
         ]
       }

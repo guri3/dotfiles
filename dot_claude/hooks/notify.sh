@@ -36,7 +36,7 @@ else
   TITLE="Claude Code"
 fi
 
-osascript -e "display notification \"$MESSAGE\" with title \"$TITLE\""
+agentoast hook claude <<< "$INPUT"
 if [ "$HOOK_EVENT" = "Notification" ]; then
   afplay /System/Library/Sounds/Ping.aiff &
 else

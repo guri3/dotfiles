@@ -93,7 +93,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "agentoast hook claude"
+            "command": "~/.claude/hooks/notify.sh"
           }
         ]
       }
@@ -104,7 +104,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "agentoast hook claude"
+            "command": "~/.claude/hooks/notify.sh"
           }
         ]
       }

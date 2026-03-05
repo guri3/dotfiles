@@ -93,11 +93,6 @@
           {
             "type": "command",
             "command": "agentoast hook claude"
-          },
-          {
-            "type": "command",
-            "command": "afplay /System/Library/Sounds/Ping.aiff",
-            "async": true
           }
         ]
       }
@@ -109,21 +104,6 @@
           {
             "type": "command",
             "command": "agentoast hook claude"
-          },
-          {
-            "type": "command",
-            "command": "afplay /System/Library/Sounds/Glass.aiff",
-            "async": true
-          }
-        ]
-      },
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/tmux-rename-window.sh",
-            "async": true
           }
         ]
       }
@@ -135,16 +115,6 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/deny-check.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/tmux-rename-window.sh",
-            "async": true
           }
         ]
       }

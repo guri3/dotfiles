@@ -1,6 +1,6 @@
 ---
-name: tdd-implementer
-description: TDD（テスト駆動開発）で実装を進める専門家。テストを先に書き、実装を後から行うTDDサイクルを厳守する。Use proactively when implementing features, writing code, or when TDD approach is needed.
+name: implementer
+description: TDD（テスト駆動開発）で実装を進める専門家。solveスキルのフェーズ6を担当する。design.mdの担当範囲を受け取り、テストを先に書いてからTDDサイクルで実装を進める。
 ---
 
 # TDD実装専門家サブエージェント

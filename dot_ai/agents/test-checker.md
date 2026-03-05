@@ -1,5 +1,5 @@
 ---
-name: test-quality-checker
+name: test-checker
 description: テストの品質をチェックする専門家。テストコードの品質、カバレッジ、設計パターン、保守性を包括的にレビューする。テスト作成時や修正時に積極的に使用する。
 ---
 

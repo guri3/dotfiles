@@ -1,4 +1,7 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
   "permissions": {
     "allow": [
       "Bash(afplay:*)",
@@ -84,7 +87,6 @@
       "Write(/etc/sudoers)"
     ]
   },
-  "model": "opusplan",
   "hooks": {
     "Notification": [
       {
@@ -125,8 +127,5 @@
     "slack@claude-plugins-official": true
   },
   "language": "日本語",
-  "skipDangerousModePermissionPrompt": true,
-  "env": {
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
-  }
+  "skipDangerousModePermissionPrompt": true
 }

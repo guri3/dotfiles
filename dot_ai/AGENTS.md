@@ -45,8 +45,35 @@
 
 - 生成した文書やログは`.guri3/ai`ディレクトリに保存する
   - aiディレクトリの中は作業単位でディレクトリを作成すること
-  - ex. `mkdir -p .guri3/ai/01_sample_task/`
+    - ex. `mkdir -p .guri3/ai/<yyyyMMdd>_sample_task/`
+    - `<yyyyMMdd>` は作業開始日の日付（例: `20260305`）
 - .guri3ディレクトリはグローバルで.gitignoreに追加されている
 - リポジトリに.guri3ディレクトリが存在しない場合はシンボリックリンクを作成すること
   - ex. `ln -s $HOME/.guri3 .guri3`
 - まとまった文章をユーザーに提示するときはmdファイルとして出力してレビュー依頼して
+
+## パーマリンクの使用
+
+Issue や PR でソースコードを参照する際は、必ず GitHub のパーマリンク（permalink）を使用すること。
+
+- ブランチ名やHEADベースのリンク（`/blob/main/...`）は禁止
+- コミットSHAベースのリンク（`/blob/abc1234/...`）を使うこと
+- 行範囲を指定する場合は `#L10-L20` 形式を付与すること
+
+### パーマリンクSHAの取得方法
+
+```bash
+# 現在のHEADのSHAを取得
+git rev-parse HEAD
+
+# 特定ファイルの最新コミットSHAを取得
+git log --oneline -1 -- <file>
+```
+
+### 良い例
+
+`https://github.com/guri3/dotfiles/blob/4f2e369/dot_ai/AGENTS.md#L42-L50`
+
+### 悪い例
+
+`https://github.com/guri3/dotfiles/blob/master/dot_ai/AGENTS.md#L42-L50`

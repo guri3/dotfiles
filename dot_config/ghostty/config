@@ -1,0 +1,7 @@
+font-family = "Hack Nerd Font Mono"
+font-family = "Hiragino Kaku Gothic ProN"
+font-feature = -dlig
+font-size = 13
+
+cursor-style = "block"
+cursor-style-blink = false

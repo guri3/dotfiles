@@ -139,7 +139,7 @@
   "skipDangerousModePermissionPrompt": true,
   "statusLine": {
     "type": "command",
-    "command": "npx -y ccstatusline@2.2.6",
+    "command": "ccstatusline",
     "padding": 0
   }
 }

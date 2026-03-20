@@ -95,6 +95,10 @@
           {
             "type": "command",
             "command": "agentoast hook claude"
+          },
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Ping.aiff"
           }
         ]
       }
@@ -106,6 +110,10 @@
           {
             "type": "command",
             "command": "agentoast hook claude"
+          },
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
           }
         ]
       }
@@ -124,8 +132,14 @@
   },
   "enabledPlugins": {
     "example-skills@anthropic-agent-skills": true,
-    "slack@claude-plugins-official": true
+    "slack@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true
   },
   "language": "日本語",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@2.2.6",
+    "padding": 0
+  }
 }

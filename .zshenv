@@ -14,6 +14,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Homebrew (Apple Silicon)
 export PATH="/opt/homebrew/bin:$PATH"
+export HOMEBREW_NO_ENV_HINTS=1
 
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"

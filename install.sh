@@ -29,3 +29,5 @@ ln -s $DOTFILES_PATH/dot_claude/settings.json ~/.claude/settings.json
 ln -s $DOTFILES_PATH/dot_cursor/AGENTS.md ~/.cursor/AGENTS.md
 ln -s $DOTFILES_PATH/dot_cursor/agents ~/.cursor/agents
 ln -s $DOTFILES_PATH/dot_cursor/skills ~/.cursor/skills
+# Ghostty
+ln -s $DOTFILES_PATH/dot_config/ghostty/config ~/.config/ghostty/config

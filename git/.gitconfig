@@ -20,6 +20,12 @@
 [pull]
   rebase = false
 
+[commit]
+  gpgsign = true
+
+[tag]
+  gpgSign = true
+
 [color]
   ui = auto
 

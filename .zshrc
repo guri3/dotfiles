@@ -124,25 +124,15 @@ bindkey '^F' fbr
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
 zstyle ':completion:*:default' menu select=1
 
-# tmuxのwindow名をリポジトリ/ブランチ情報で更新
+# tmuxのwindow名をリポジトリ名で更新
 function _update_tmux_window_name() {
   [ -z "$TMUX" ] && return
-  local toplevel branch project main_worktree
+  local toplevel project main_worktree
   toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
   if [ -n "$toplevel" ]; then
     main_worktree=$(git worktree list 2>/dev/null | head -1 | awk '{print $1}')
     project=$(basename "${main_worktree:-$toplevel}")
-    branch=$(git branch --show-current 2>/dev/null)
-    if [ "$toplevel" != "$main_worktree" ]; then
-      # worktreeの場合は🌲を付ける
-      tmux rename-window "🌲${project}(${branch:-detached})"
-    else
-      if [ -n "$branch" ]; then
-        tmux rename-window "${project}(${branch})"
-      else
-        tmux rename-window "$project"
-      fi
-    fi
+    tmux rename-window "$project"
   else
     tmux rename-window "$(basename "$PWD")"
   fi
@@ -150,6 +140,7 @@ function _update_tmux_window_name() {
 
 autoload -Uz add-zsh-hook
 add-zsh-hook chpwd _update_tmux_window_name
+add-zsh-hook precmd _update_tmux_window_name
 
 # tmuxのwindowを左右に分けるコマンド
 s2() {

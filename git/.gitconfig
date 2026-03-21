@@ -21,7 +21,7 @@
   rebase = false
 
 [commit]
-  gpgsign = true
+	gpgsign = true
 
 [tag]
   gpgSign = true

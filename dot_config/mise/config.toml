@@ -12,7 +12,7 @@ ghq = "latest"
 
 "npm:git-split-diffs" = "2.3.0"
 "npm:yarn" = "1.22.22"
-"npm:@openai/codex" = "0.53.0"
+"npm:@openai/codex" = "0.116.0"
 "npm:ccstatusline" = "2.2.6"
 
 [settings]

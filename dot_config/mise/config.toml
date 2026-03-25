@@ -14,6 +14,7 @@ ghq = "latest"
 "npm:yarn" = "1.22.22"
 "npm:@openai/codex" = "0.116.0"
 "npm:ccstatusline" = "2.2.6"
+"npm:takt" = "0.33.0"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]

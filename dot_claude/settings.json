@@ -130,6 +130,11 @@
       }
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "ccstatusline",
+    "padding": 0
+  },
   "enabledPlugins": {
     "example-skills@anthropic-agent-skills": true,
     "slack@claude-plugins-official": true,
@@ -137,9 +142,5 @@
   },
   "language": "日本語",
   "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "type": "command",
-    "command": "ccstatusline",
-    "padding": 0
-  }
+  "skipAutoPermissionPrompt": true
 }

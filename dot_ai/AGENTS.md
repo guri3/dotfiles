@@ -81,3 +81,7 @@ git log --oneline -1 -- <file>
 ### 悪い例
 
 `https://github.com/guri3/dotfiles/blob/master/dot_ai/AGENTS.md#L42-L50`
+
+## 仕事用ルールの読み込み
+
+@AGENTS.work.md が存在する場合は読み込んでその内容に従うこと

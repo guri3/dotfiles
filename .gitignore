@@ -1,4 +1,5 @@
 .zshrc.zwc
 .zshrc.local
 .gitconfig.local
-AGENTS.work.md
+*.work
+*.work.*

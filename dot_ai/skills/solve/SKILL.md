@@ -109,7 +109,7 @@ design.mdの承認後、PR分割方針に従ってブランチを作成し、空
 git checkout -b <ブランチ名>
 
 # 空コミットとPush
-git commit --allow-empty -m "WIP: <実装内容の簡潔な説明>"
+git commit --allow-empty -m "作業開始: <実装内容の簡潔な説明>"
 git push -u origin <ブランチ名>
 
 # Draft PR作成
@@ -130,7 +130,7 @@ git worktree add ../<リポジトリ名>-<ブランチ名> -b <ブランチ名>
 
 # 各worktreeで空コミットとPush
 cd ../<リポジトリ名>-<ブランチ名>
-git commit --allow-empty -m "WIP: <PR内容の説明>"
+git commit --allow-empty -m "作業開始: <PR内容の説明>"
 git push -u origin <ブランチ名>
 
 # Draft PR作成（各ブランチ）

@@ -13,6 +13,7 @@
       "Bash(grep:*)",
       "Bash(make:*)",
       "Bash(rg:*)",
+      "Bash(pbcopy:*)",
       "Bash(sed:*)",
       "Bash(tmux rename-window:*)",
       "Read(~/ghq/**)",

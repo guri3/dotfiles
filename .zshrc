@@ -22,16 +22,12 @@ zinit wait lucid for \
       zsh-users/zsh-completions \
   atload"_zsh_autosuggest_start" \
       zsh-users/zsh-autosuggestions \
-  atinit"zicompinit; zicdreplay" \
       zsh-users/zsh-syntax-highlighting
 
 # 自動補完を有効にする
 autoload bashcompinit && bashcompinit
-# compinit高速化: ダンプファイルが新しければスキップ
+# compinit高速化: キャッシュ済みダンプを使用
 autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
 compinit -C
 # コマンドプロンプトに色をつける
 autoload -Uz colors; colors

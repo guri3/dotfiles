@@ -17,17 +17,19 @@ ln -s $DOTFILES_PATH/dot_config/mise ~/.config/mise
 ln -s $DOTFILES_PATH/dot_config/starship.toml ~/.config/starship.toml
 ln -s $DOTFILES_PATH/.aerospace.toml ~/.aerospace.toml
 # Codex
-ln -s $DOTFILES_PATH/dot_codex/AGENTS.md ~/.codex/AGENTS.md
+ln -s $DOTFILES_PATH/dot_ai/AGENTS.md ~/.codex/AGENTS.md
 ln -s $DOTFILES_PATH/dot_codex/config.toml ~/.codex/config.toml
+ln -s $DOTFILES_PATH/dot_ai/skills ~/.codex/skills
+ln -s $DOTFILES_PATH/dot_ai/agents ~/.codex/agents
 # Claude
 ln -s $DOTFILES_PATH/dot_claude/CLAUDE.md ~/.claude/CLAUDE.md
-ln -s $DOTFILES_PATH/dot_claude/hooks ~/.claude/hooks
-ln -s $DOTFILES_PATH/dot_claude/scripts ~/.claude/scripts
-ln -s $DOTFILES_PATH/dot_claude/skills ~/.claude/skills
+ln -s $DOTFILES_PATH/dot_ai/skills ~/.claude/skills
+ln -s $DOTFILES_PATH/dot_ai/agents ~/.claude/agents
 ln -s $DOTFILES_PATH/dot_claude/settings.json ~/.claude/settings.json
+ln -s $DOTFILES_PATH/dot_claude/scripts ~/.claude/scripts
 # Cursor
-ln -s $DOTFILES_PATH/dot_cursor/AGENTS.md ~/.cursor/AGENTS.md
-ln -s $DOTFILES_PATH/dot_cursor/agents ~/.cursor/agents
-ln -s $DOTFILES_PATH/dot_cursor/skills ~/.cursor/skills
+ln -s $DOTFILES_PATH/dot_ai/AGENTS.md ~/.cursor/AGENTS.md
+ln -s $DOTFILES_PATH/dot_ai/skills ~/.cursor/skills
+ln -s $DOTFILES_PATH/dot_ai/agents ~/.cursor/agents
 # Ghostty
 ln -s $DOTFILES_PATH/dot_config/ghostty/config ~/.config/ghostty/config

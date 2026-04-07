@@ -143,7 +143,6 @@
     "swift-lsp@claude-plugins-official": true,
     "codex@openai-codex": true,
     "context7@claude-plugins-official": true,
-    "claude-api@anthropic-agent-skills": true,
     "php-lsp@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true
   },

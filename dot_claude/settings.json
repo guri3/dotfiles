@@ -140,7 +140,20 @@
   "enabledPlugins": {
     "example-skills@anthropic-agent-skills": true,
     "slack@claude-plugins-official": true,
-    "swift-lsp@claude-plugins-official": true
+    "swift-lsp@claude-plugins-official": true,
+    "codex@openai-codex": true,
+    "context7@claude-plugins-official": true,
+    "claude-api@anthropic-agent-skills": true,
+    "php-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
+    }
   },
   "language": "日本語",
   "skipDangerousModePermissionPrompt": true,

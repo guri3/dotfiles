@@ -3,3 +3,4 @@
 .gitconfig.local
 *.work
 *.work.*
+.system/

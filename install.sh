@@ -31,5 +31,7 @@ ln -s $DOTFILES_PATH/dot_claude/scripts ~/.claude/scripts
 ln -s $DOTFILES_PATH/dot_ai/AGENTS.md ~/.cursor/AGENTS.md
 ln -s $DOTFILES_PATH/dot_ai/skills ~/.cursor/skills
 ln -s $DOTFILES_PATH/dot_ai/agents ~/.cursor/agents
+# tmux
+ln -s $DOTFILES_PATH/.config/tmux ~/.config/tmux
 # Ghostty
 ln -s $DOTFILES_PATH/dot_config/ghostty/config ~/.config/ghostty/config

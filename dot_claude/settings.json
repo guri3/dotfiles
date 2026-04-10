@@ -170,6 +170,15 @@
             "command": "bash ~/.tmux/plugins/tmux-agent-sidebar/hook.sh claude activity-log"
           }
         ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/scripts/mo-open.sh"
+          }
+        ]
       }
     ],
     "SessionEnd": [

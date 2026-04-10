@@ -156,5 +156,6 @@
   },
   "language": "日本語",
   "skipDangerousModePermissionPrompt": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "effortLevel": "high"
 }

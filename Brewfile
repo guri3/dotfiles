@@ -8,7 +8,6 @@ tap "shuntaka9576/tap"
 
 # シェル・ターミナル
 brew "zsh"
-brew "fish"
 brew "starship"
 brew "tmux"
 brew "bat"

@@ -13,7 +13,6 @@ brew "tmux"
 brew "bat"
 brew "tree"
 brew "ripgrep"
-brew "expect"
 
 # 開発ツール
 brew "gh"

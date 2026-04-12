@@ -1,5 +1,8 @@
 export DOTFILES_PATH="$HOME/ghq/github.com/guri3/dotfiles"
 
+# Homebrew パッケージのインストール
+brew bundle --file="$DOTFILES_PATH/Brewfile"
+
 ln -s $DOTFILES_PATH/.tmux.conf ~/.tmux.conf
 ln -s $DOTFILES_PATH/.vimrc ~/.vimrc
 ln -s $DOTFILES_PATH/.zshenv ~/.zshenv

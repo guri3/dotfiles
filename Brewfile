@@ -1,6 +1,5 @@
 # Tap
 tap "felixkratz/formulae"
-tap "gcenx/wine"
 tap "k1low/tap"
 tap "manaflow-ai/cmux"
 tap "mutagen-io/mutagen"
@@ -44,9 +43,6 @@ brew "k1low/tap/mo"
 brew "shuntaka9576/tap/agentoast-cli"
 brew "felixkratz/formulae/borders"
 
-# Wine
-brew "winetricks"
-
 # GUIアプリ
 cask "nikitabobko/tap/aerospace"
 cask "shuntaka9576/tap/agentoast"
@@ -57,5 +53,4 @@ cask "font-hack-nerd-font"
 cask "ghostty"
 cask "jordanbaird-ice"
 cask "ngrok"
-cask "gcenx/wine/wine-crossover"
 cask "xcodes-app"

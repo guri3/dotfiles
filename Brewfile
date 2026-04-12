@@ -33,7 +33,6 @@ brew "pinentry-mac"
 brew "mutagen-io/mutagen/mutagen-compose"
 
 # ユーティリティ
-brew "ical-buddy"
 brew "k1low/tap/mo"
 brew "shuntaka9576/tap/agentoast-cli"
 brew "felixkratz/formulae/borders"

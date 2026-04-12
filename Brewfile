@@ -37,27 +37,37 @@ brew "k1low/tap/mo"
 brew "shuntaka9576/tap/agentoast-cli"
 brew "felixkratz/formulae/borders"
 
-# GUIアプリ
-cask "nikitabobko/tap/aerospace"
+# GUIアプリ - 開発ツール
 cask "shuntaka9576/tap/agentoast"
 cask "manaflow-ai/cmux/cmux"
 cask "copilot-cli"
-cask "font-hack-nerd-font"
-cask "ghostty"
-cask "jordanbaird-ice"
-cask "1password"
-cask "chatgpt"
-cask "claude"
 cask "cursor"
 cask "dash"
+cask "tableplus"
+cask "visual-studio-code"
+
+# GUIアプリ - AI
+cask "chatgpt"
+cask "claude"
+
+# GUIアプリ - コミュニケーション
 cask "discord"
+cask "slack"
+cask "zoom"
+
+# GUIアプリ - ブラウザ
 cask "firefox"
 cask "google-chrome"
+
+# GUIアプリ - ウィンドウ管理・ユーティリティ
+cask "nikitabobko/tap/aerospace"
+cask "jordanbaird-ice"
 cask "raycast"
 cask "scroll-reverser"
-cask "slack"
-cask "tableplus"
+
+# GUIアプリ - その他
+cask "1password"
+cask "font-hack-nerd-font"
+cask "ghostty"
 cask "ticktick"
-cask "visual-studio-code"
 cask "via"
-cask "zoom"

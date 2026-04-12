@@ -40,7 +40,6 @@ brew "felixkratz/formulae/borders"
 # GUIアプリ
 cask "nikitabobko/tap/aerospace"
 cask "shuntaka9576/tap/agentoast"
-cask "alt-tab"
 cask "manaflow-ai/cmux/cmux"
 cask "copilot-cli"
 cask "font-hack-nerd-font"

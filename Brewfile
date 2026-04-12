@@ -29,9 +29,6 @@ brew "cocoapods"
 brew "gnupg"
 brew "pinentry-mac"
 
-# データベース
-brew "postgresql@17"
-
 # コンテナ・同期
 brew "mutagen-io/mutagen/mutagen-compose"
 

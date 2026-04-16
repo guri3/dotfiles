@@ -6,7 +6,7 @@ pane_id="$1"
 [ -z "$pane_id" ] && exit 0
 
 status=$(~/.config/tmux/scripts/check-agent-status.sh "$pane_id" 2>/dev/null)
-[ -z "$status" ] && exit 0
+[ -z "$status" ] && printf ' ' && exit 0
 
 case "$status" in
     running)  printf '#[fg=#f0c674] \xef\x83\xa7 ' ;;

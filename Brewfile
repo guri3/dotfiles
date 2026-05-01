@@ -2,6 +2,7 @@
 tap "felixkratz/formulae"
 tap "k1low/tap"
 tap "manaflow-ai/cmux"
+tap "microsoft/apm"
 tap "mutagen-io/mutagen"
 tap "nikitabobko/tap"
 tap "shuntaka9576/tap"
@@ -19,6 +20,7 @@ brew "gh"
 brew "mise"
 brew "graphviz"
 brew "mkcert"
+brew "microsoft/apm/apm"
 
 # 言語・ランタイム
 brew "php"

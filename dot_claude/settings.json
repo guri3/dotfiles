@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "CLAUDE_CODE_NO_FLICKER": "1"
@@ -216,7 +217,7 @@
     "codex@openai-codex": true,
     "context7@claude-plugins-official": true,
     "php-lsp@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": false
   },
   "extraKnownMarketplaces": {
     "openai-codex": {
@@ -227,7 +228,9 @@
     }
   },
   "language": "日本語",
+  "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
-  "skipAutoPermissionPrompt": true,
-  "effortLevel": "high"
+  "preferredNotifChannel": "notifications_disabled",
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }

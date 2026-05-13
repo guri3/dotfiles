@@ -22,15 +22,12 @@ ln -s $DOTFILES_PATH/.aerospace.toml ~/.aerospace.toml
 # Codex
 ln -s $DOTFILES_PATH/dot_ai/AGENTS.md ~/.codex/AGENTS.md
 ln -s $DOTFILES_PATH/dot_codex/config.toml ~/.codex/config.toml
-ln -s $DOTFILES_PATH/dot_ai/agents ~/.codex/agents
 # Claude
 ln -s $DOTFILES_PATH/dot_claude/CLAUDE.md ~/.claude/CLAUDE.md
-ln -s $DOTFILES_PATH/dot_ai/agents ~/.claude/agents
 ln -s $DOTFILES_PATH/dot_claude/settings.json ~/.claude/settings.json
 ln -s $DOTFILES_PATH/dot_claude/scripts ~/.claude/scripts
 # Cursor
 ln -s $DOTFILES_PATH/dot_ai/AGENTS.md ~/.cursor/AGENTS.md
-ln -s $DOTFILES_PATH/dot_ai/agents ~/.cursor/agents
 # tmux
 ln -s $DOTFILES_PATH/.config/tmux ~/.config/tmux
 # Ghostty
@@ -39,4 +36,9 @@ ln -s $DOTFILES_PATH/dot_config/ghostty/config ~/.config/ghostty/config
 # Skills (APM 経由でグローバルインストール)
 for skill in create-pr empirical-prompt-tuning git-commit rule-feedback solve split-pr; do
   apm install -g "guri3/dotfiles/dot_ai/skills/$skill"
+done
+
+# Agents (APM 経由でグローバルインストール)
+for agent in feedback implementer planner reviewer system-designer test-checker; do
+  apm install -g "guri3/dotfiles/dot_ai/agents/$agent.agent.md"
 done

@@ -71,5 +71,6 @@ cask "scroll-reverser"
 # GUIアプリ - その他
 cask "1password"
 cask "font-hack-nerd-font"
+cask "obsidian"
 cask "ticktick"
 cask "via"

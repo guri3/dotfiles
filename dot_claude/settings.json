@@ -232,7 +232,7 @@
     }
   },
   "language": "日本語",
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
   "preferredNotifChannel": "notifications_disabled",
   "agentPushNotifEnabled": true,

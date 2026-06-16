@@ -90,8 +90,7 @@
       "Bash(gh repo delete *)"
     ],
     "ask": [
-      "Bash(gh pr merge *)",
-      "WebSearch"
+      "Bash(gh pr merge *)"
     ]
   },
   "hooks": {
@@ -225,6 +224,7 @@
   "language": "日本語",
   "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
   "preferredNotifChannel": "notifications_disabled",
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true

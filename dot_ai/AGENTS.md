@@ -83,6 +83,16 @@ git log --oneline -1 -- <file>
 
 `https://github.com/guri3/dotfiles/blob/master/dot_ai/AGENTS.md#L42-L50`
 
+## モデルによる挙動の調整
+
+### Fableを使っているときのルール
+
+- 小さいタスクはOpusやSonnetに適切に委譲すること
+  - 委譲するタスクの例。他にも委譲の必要があると判断できる場合は委譲すること
+    - すでに方針が決まっているコードの編集
+    - レビュー依頼
+- より上段の方針や難しいタスクに関してはFableが質を担保すること
+
 ## 仕事用ルールの読み込み
 
 @AGENTS.work.md が存在する場合は読み込んでその内容に従うこと

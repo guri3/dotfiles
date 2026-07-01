@@ -95,6 +95,7 @@
       "Bash(gh pr merge *)"
     ]
   },
+  "model": "sonnet",
   "hooks": {
     "Notification": [
       {
@@ -228,6 +229,7 @@
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "preferredNotifChannel": "notifications_disabled",
+  "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
 }

@@ -1,11 +1,9 @@
 # Tap
 tap "felixkratz/formulae"
-tap "k1low/tap"
 tap "manaflow-ai/cmux"
 tap "microsoft/apm"
 tap "mutagen-io/mutagen"
 tap "nikitabobko/tap"
-tap "shuntaka9576/tap"
 
 # シェル・ターミナル
 brew "zsh"
@@ -35,12 +33,9 @@ brew "pinentry-mac"
 brew "mutagen-io/mutagen/mutagen-compose"
 
 # ユーティリティ
-brew "k1low/tap/mo"
-brew "shuntaka9576/tap/agentoast-cli"
 brew "felixkratz/formulae/borders"
 
 # GUIアプリ - 開発ツール
-cask "shuntaka9576/tap/agentoast"
 cask "manaflow-ai/cmux/cmux"
 cask "copilot-cli"
 cask "cursor"
@@ -73,4 +68,3 @@ cask "1password"
 cask "font-hack-nerd-font"
 cask "obsidian"
 cask "ticktick"
-cask "via"

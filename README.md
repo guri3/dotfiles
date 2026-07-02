@@ -6,22 +6,15 @@
 
 インストール方法は変わる可能性があるため、[公式サイト](https://brew.sh/ja/)の手順に従う。
 
-### 2. リポジトリをcloneする
-
-ghqの規約に従った場所に配置する。
+### 2. make installを実行する
 
 ```sh
-git clone https://github.com/guri3/dotfiles.git ~/ghq/github.com/guri3/dotfiles
+curl -fsSL https://raw.githubusercontent.com/guri3/dotfiles/master/Makefile | make -f - install
 ```
 
-### 3. make installを実行する
+Makefileがghqの規約に従い `~/ghq/github.com/guri3/dotfiles` へリポジトリをcloneし、そこでセットアップを実行する。Homebrewパッケージ・miseで管理するツール・各種設定ファイルのsymlinkまで、すべてこれで完了する。
 
-```sh
-cd ~/ghq/github.com/guri3/dotfiles
-make install
-```
-
-Homebrewパッケージ・miseで管理するツール・各種設定ファイルのsymlinkまで、すべてのセットアップが完了する。
+手動でcloneした場合も、リポジトリ内で `make install` を実行すればよい。規約外の場所で実行した場合は、規約の場所へのcloneを済ませた上でそちらで実行し直される。
 
 ## 個別実行
 

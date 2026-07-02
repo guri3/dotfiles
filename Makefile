@@ -1,11 +1,23 @@
 DOTFILES_PATH := $(HOME)/ghq/github.com/guri3/dotfiles
-
-# symlinkの向き先を固定するため、ghqの規約通りの場所に配置されていることを強制する
-ifneq ($(CURDIR),$(DOTFILES_PATH))
-$(error dotfilesは $(DOTFILES_PATH) に配置して実行すること。READMEのセットアップ手順を参照)
-endif
+REPO_URL := https://github.com/guri3/dotfiles.git
 
 .DEFAULT_GOAL := install
+
+# symlinkの向き先を固定するため、ghqの規約通りの場所で実行する。
+# 規約外の場所で実行された場合は、規約の場所へのcloneを済ませた上でそちらで実行し直す。
+ifneq ($(CURDIR),$(DOTFILES_PATH))
+
+GOALS := $(or $(MAKECMDGOALS),install)
+
+.PHONY: $(GOALS)
+$(GOALS):
+	@if [ ! -d "$(DOTFILES_PATH)" ]; then \
+		mkdir -p "$(dir $(DOTFILES_PATH))"; \
+		git clone "$(REPO_URL)" "$(DOTFILES_PATH)"; \
+	fi
+	$(MAKE) -C "$(DOTFILES_PATH)" $@
+
+else
 
 .PHONY: install brew brew-check shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor ghostty herdr skills agents
 
@@ -110,3 +122,5 @@ agents:
 	for agent in feedback implementer planner reviewer system-designer test-checker; do \
 		apm install -g "guri3/dotfiles/dot_ai/agents/$$agent.agent.md"; \
 	done
+
+endif

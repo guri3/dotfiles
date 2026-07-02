@@ -1,9 +1,9 @@
 # Tap
-tap "felixkratz/formulae"
-tap "manaflow-ai/cmux"
-tap "microsoft/apm"
-tap "mutagen-io/mutagen"
-tap "nikitabobko/tap"
+tap "felixkratz/formulae", trusted: true
+tap "manaflow-ai/cmux", trusted: true
+tap "microsoft/apm", trusted: true
+tap "mutagen-io/mutagen", trusted: true
+tap "nikitabobko/tap", trusted: true
 
 # シェル・ターミナル
 brew "zsh"

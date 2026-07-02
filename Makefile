@@ -53,6 +53,10 @@ mise:
 	mkdir -p "$(HOME)/.config"
 	ln -sfn "$(DOTFILES_PATH)/dot_config/mise" "$(HOME)/.config/mise"
 
+# miseで管理するツールのインストール（mise本体はbrew経由で入るためbrewに依存）
+mise-install: brew mise
+	mise install --yes
+
 # Starship
 starship:
 	mkdir -p "$(HOME)/.config"

@@ -32,6 +32,8 @@ ln -s $DOTFILES_PATH/dot_ai/AGENTS.md ~/.cursor/AGENTS.md
 ln -s $DOTFILES_PATH/.config/tmux ~/.config/tmux
 # Ghostty
 ln -s $DOTFILES_PATH/dot_config/ghostty/config ~/.config/ghostty/config
+# Herdr
+ln -s $DOTFILES_PATH/dot_config/herdr/config.toml ~/.config/herdr/config.toml
 
 # Skills (APM 経由でグローバルインストール)
 for skill in create-pr empirical-prompt-tuning git-commit rule-feedback solve split-pr; do

@@ -1,4 +1,9 @@
-DOTFILES_PATH := $(CURDIR)
+DOTFILES_PATH := $(HOME)/ghq/github.com/guri3/dotfiles
+
+# symlinkの向き先を固定するため、ghqの規約通りの場所に配置されていることを強制する
+ifneq ($(CURDIR),$(DOTFILES_PATH))
+$(error dotfilesは $(DOTFILES_PATH) に配置して実行すること。bootstrap.shを使えば自動で配置される)
+endif
 
 .DEFAULT_GOAL := all
 

@@ -8,6 +8,7 @@ tap "nikitabobko/tap"
 # シェル・ターミナル
 brew "zsh"
 brew "starship"
+brew "herdr"
 brew "tmux"
 brew "bat"
 brew "tree"

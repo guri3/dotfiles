@@ -1,0 +1,37 @@
+# herdr configuration
+# 全設定項目のリファレンス: https://herdr.dev/docs/configuration/
+
+[terminal]
+# ログインシェルはbashのため、ペインではzshを起動する（tmuxのdefault-shell相当）
+default_shell = "/opt/homebrew/bin/zsh"
+
+[keys]
+# tmuxライクなキーバインド（~/.tmux.conf に準拠）
+# prefix+1..9 / h / j / k / l / x / z / w はデフォルトがtmuxと一致するため未設定
+prefix = "ctrl+j"
+detach = "prefix+d"
+reload_config = "prefix+r"
+
+# space（workspace）操作。tmuxのwindow感覚で c / p / n に割り当て
+new_workspace = "prefix+c"
+previous_workspace = "prefix+p"
+next_workspace = "prefix+n"
+
+# タブの作成・移動はキーに割り当てない（space操作を優先）
+new_tab = ""
+previous_tab = ""
+next_tab = ""
+rename_tab = "prefix+comma"    # tmux: prefix+,
+close_tab = "prefix+ampersand" # tmux: prefix+&
+
+copy_mode = "prefix+v"            # tmux: bind v copy-mode
+split_vertical = "prefix+|"       # 左右分割（tmux: bind |）
+split_horizontal = "prefix+minus" # 上下分割（tmux: bind -）
+resize_mode = "prefix+shift+r"    # prefix+r は reload_config に譲る
+
+[ui]
+agent_panel_sort = "spaces"
+show_agent_labels_on_pane_borders = false
+
+[experimental]
+pane_history = false

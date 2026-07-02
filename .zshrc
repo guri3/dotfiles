@@ -120,40 +120,6 @@ bindkey '^F' fbr
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
 zstyle ':completion:*:default' menu select=1
 
-# tmuxのwindow名をリポジトリ名で更新
-function _update_tmux_window_name() {
-  [ -z "$TMUX" ] && return
-  local toplevel project main_worktree
-  toplevel=$(git rev-parse --show-toplevel 2>/dev/null)
-  if [ -n "$toplevel" ]; then
-    main_worktree=$(git worktree list 2>/dev/null | head -1 | awk '{print $1}')
-    project=$(basename "${main_worktree:-$toplevel}")
-    tmux rename-window "$project"
-  else
-    tmux rename-window "$(basename "$PWD")"
-  fi
-}
-
-autoload -Uz add-zsh-hook
-add-zsh-hook chpwd _update_tmux_window_name
-add-zsh-hook precmd _update_tmux_window_name
-
-# tmuxのwindowを左右に分けるコマンド
-s2() {
-  tmux split-window -h
-}
-# tmuxのwindowを3つに分けるコマンド
-s3() {
-  tmux split-window -h
-  tmux split-window -v -t `tmux display-message -p '#I'`.2
-}
-# tmuxのwindowを4等分するコマンド
-s4 () {
-  tmux split-window -h
-  tmux split-window -v -t `tmux display-message -p '#I'`.1
-  tmux split-window -v -t `tmux display-message -p '#I'`.3
-}
-
 # ssh
 if [ -f ~/.ssh-agent ]; then
   . ~/.ssh-agent > /dev/null

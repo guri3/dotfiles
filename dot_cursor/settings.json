@@ -1,0 +1,236 @@
+{
+  "[c]": {
+    "editor.formatOnSave": false
+  },
+  "[cpp]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4
+  },
+  "[go]": {
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "files.trimTrailingWhitespace": false
+  },
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.tabSize": 4
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cursor.composer.shouldChimeAfterChatFinishes": true,
+  "cursor.composer.usageSummaryDisplay": "always",
+  "cursor.cpp.disabledLanguages": [
+    "scminput"
+  ],
+  "cursor.cpp.enablePartialAccepts": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.colorDecorators": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.largeFileOptimizations": false,
+  "editor.linkedEditing": true,
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [
+    120
+  ],
+  "editor.snippetSuggestions": "top",
+  "editor.tabSize": 2,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.wordWrap": "on",
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  "extensions.autoUpdate": false,
+  "extensions.ignoreRecommendations": true,
+  "files.associations": {
+    "*.golden": "json",
+    "*.inc": "php",
+    "*.jbuilder": "ruby",
+    "*.md": "markdown",
+    "*.mdx": "markdown",
+    "*.tmpl": "html"
+  },
+  "files.trimTrailingWhitespace": true,
+  "git-worktree-manager.checkoutIgnoreOtherWorktree": true,
+  "git-worktree-manager.postCreateCmd": "git update-index --skip-worktree .vscode/settings.json",
+  "git-worktree-manager.worktreeCopyPatterns": [
+    ".env",
+    ".vscode/**",
+    "*.local",
+    ".guri3/**",
+    ".cursor/**"
+  ],
+  "git-worktree-manager.worktreeSubdirectoryTemplate": "$BASE_NAME-$REF_NAME",
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "never",
+  "githubPullRequests.fileListLayout": "tree",
+  "githubPullRequests.pullBranch": "never",
+  "githubPullRequests.pushBranch": "always",
+  "gitlens.advanced.messages": {
+    "suppressGitMissingWarning": true
+  },
+  "gitlens.codeLens.scopes": [
+    "document",
+    "containers"
+  ],
+  "gitlens.currentLine.enabled": false,
+  "gitlens.launchpad.indicator.enabled": false,
+  "html.format.contentUnformatted": "",
+  "intelephense.phpdoc.returnVoid": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "json.schemas": [],
+  "macros": {
+    "commentAndMoveDown": [
+      "editor.action.commentLine",
+      "cursorDown"
+    ]
+  },
+  "makefile.configureOnOpen": false,
+  "namespaceResolver.sortAlphabetically": true,
+  "path-autocomplete.pathMappings": {
+    "src": "${folder}/src"
+  },
+  "peacock.favoriteColors": [
+    {
+      "name": "Angular Red",
+      "value": "#dd0531"
+    },
+    {
+      "name": "Azure Blue",
+      "value": "#007fff"
+    },
+    {
+      "name": "JavaScript Yellow",
+      "value": "#f9e64f"
+    },
+    {
+      "name": "Mandalorian Blue",
+      "value": "#1857a4"
+    },
+    {
+      "name": "Node Green",
+      "value": "#215732"
+    },
+    {
+      "name": "React Blue",
+      "value": "#61dafb"
+    },
+    {
+      "name": "Something Different",
+      "value": "#832561"
+    },
+    {
+      "name": "Svelte Orange",
+      "value": "#ff3d00"
+    },
+    {
+      "name": "Vue Green",
+      "value": "#42b883"
+    }
+  ],
+  "rubyLsp.customRubyCommand": "eval \"$(mise env -s zsh)\"",
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "custom"
+  },
+  "search.exclude": {
+    "**/bower_components": true,
+    "**/node_modules": true,
+    "**/tmp/cache": true,
+    "**/vendor/bundle": true
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.automationProfile.osx": {
+    "path": "/opt/homebrew/bin/zsh"
+  },
+  "terminal.integrated.shellIntegration.enabled": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "update.mode": "silentlyApplyOnQuit",
+  "update.releaseTrack": "dev",
+  "vim.easymotion": true,
+  "vim.leader": " ",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "after": [
+        ":"
+      ],
+      "before": [
+        ";"
+      ]
+    },
+    {
+      "after": [
+        ";"
+      ],
+      "before": [
+        ":"
+      ]
+    }
+  ],
+  "vim.statusBarColorControl": false,
+  "vim.useSystemClipboard": true,
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "after": [
+        ":"
+      ],
+      "before": [
+        ";"
+      ]
+    },
+    {
+      "after": [
+        ";"
+      ],
+      "before": [
+        ":"
+      ]
+    }
+  ],
+  "window.commandCenter": true,
+  "workbench.activityBar.orientation": "vertical",
+  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.experimental.share.enabled": true,
+  "workbench.iconTheme": "file-icons",
+  "workbench.startupEditor": "newUntitledFile",
+  "git.blame.editorDecoration.enabled": false,
+  "window.autoDetectColorScheme": false
+}

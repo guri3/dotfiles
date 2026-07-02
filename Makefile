@@ -19,9 +19,9 @@ $(GOALS):
 
 else
 
-.PHONY: install brew brew-check shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor ghostty herdr skills agents
+.PHONY: install brew brew-check shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor cursor-extensions cursor-dump ghostty herdr skills agents
 
-install: brew shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor ghostty herdr skills agents
+install: brew shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor cursor-extensions ghostty herdr skills agents
 
 # Homebrew本体はインストール方法が変わりうるため自動化せず、存在チェックのみ行う
 brew-check:
@@ -97,9 +97,25 @@ claude:
 	ln -sfn "$(DOTFILES_PATH)/dot_claude/scripts" "$(HOME)/.claude/scripts"
 
 # Cursor
+CURSOR_USER_DIR := $(HOME)/Library/Application Support/Cursor/User
+
+# Cursor自身が設定ファイルを書き換えるため、symlinkではなくcpで反映する
 cursor:
-	mkdir -p "$(HOME)/.cursor"
+	mkdir -p "$(HOME)/.cursor" "$(CURSOR_USER_DIR)"
 	ln -sfn "$(DOTFILES_PATH)/dot_ai/AGENTS.md" "$(HOME)/.cursor/AGENTS.md"
+	rm -f "$(CURSOR_USER_DIR)/settings.json" "$(CURSOR_USER_DIR)/keybindings.json"
+	cp "$(DOTFILES_PATH)/dot_cursor/settings.json" "$(CURSOR_USER_DIR)/settings.json"
+	cp "$(DOTFILES_PATH)/dot_cursor/keybindings.json" "$(CURSOR_USER_DIR)/keybindings.json"
+
+# Cursorの拡張機能を一覧ファイルからインストールする（cursorコマンドはcask経由で入る）
+cursor-extensions:
+	xargs -L1 cursor --install-extension < "$(DOTFILES_PATH)/dot_cursor/extensions.txt"
+
+# Cursor側の現状（設定・拡張機能一覧）をdotfilesに取り込む
+cursor-dump:
+	cp "$(CURSOR_USER_DIR)/settings.json" "$(DOTFILES_PATH)/dot_cursor/settings.json"
+	cp "$(CURSOR_USER_DIR)/keybindings.json" "$(DOTFILES_PATH)/dot_cursor/keybindings.json"
+	cursor --list-extensions | sort > "$(DOTFILES_PATH)/dot_cursor/extensions.txt"
 
 # Ghostty
 ghostty:

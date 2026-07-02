@@ -5,11 +5,11 @@ ifneq ($(CURDIR),$(DOTFILES_PATH))
 $(error dotfilesは $(DOTFILES_PATH) に配置して実行すること。bootstrap.shを使えば自動で配置される)
 endif
 
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := install
 
-.PHONY: all brew shell git vim pry tmux aerospace borders mise starship codex claude cursor ghostty herdr skills agents
+.PHONY: install brew shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor ghostty herdr skills agents
 
-all: brew shell git vim pry tmux aerospace borders mise starship codex claude cursor ghostty herdr skills agents
+install: brew shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor ghostty herdr skills agents
 
 # Homebrew パッケージのインストール
 brew:

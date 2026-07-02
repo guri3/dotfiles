@@ -12,7 +12,7 @@ bootstrap.shは以下を行う。
 
 - Homebrewが未インストールならインストールする
 - ghqの規約に従い `~/ghq/github.com/guri3/dotfiles` にリポジトリをcloneする
-- `make all` で全セットアップを実行する
+- `make install` で全セットアップを実行する
 
 ## 個別実行
 

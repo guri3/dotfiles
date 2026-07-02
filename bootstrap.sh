@@ -21,4 +21,4 @@ if [ ! -d "$DOTFILES_PATH" ]; then
   git clone https://github.com/guri3/dotfiles.git "$DOTFILES_PATH"
 fi
 
-make -C "$DOTFILES_PATH" all
+make -C "$DOTFILES_PATH" install

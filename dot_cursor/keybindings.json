@@ -1,0 +1,77 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "ctrl+j h",
+    "command": "workbench.action.focusSideBar"
+  },
+  {
+    "key": "cmd+0",
+    "command": "-workbench.action.focusSideBar"
+  },
+  {
+    "key": "ctrl+j j",
+    "command": "workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "cmd+1",
+    "command": "-workbench.action.focusFirstEditorGroup"
+  },
+  {
+    "key": "ctrl+j k",
+    "command": "workbench.action.focusSecondEditorGroup"
+  },
+  {
+    "key": "cmd+2",
+    "command": "-workbench.action.focusSecondEditorGroup"
+  },
+  {
+    "key": "ctrl+j l",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "cmd+p",
+    "command": "-workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+j r",
+    "command": "workbench.action.openRecent"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.tasks.reRunTask"
+  },
+  {
+    "command": "macros.commentAndMoveDown",
+    "key": "cmd+/",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+o",
+    "command": "composerMode.chat"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "git.checkout",
+    "when": "!operationInProgress"
+  },
+  {
+    "key": "ctrl+j p",
+    "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+        "text": "\u001b\r"
+    },
+    "when": "terminalFocus"
+  }
+]

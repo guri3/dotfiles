@@ -1,6 +1,7 @@
 ---
 name: git-commit
 description: これまでの作業内容に適切なコミットメッセージをつけてcommit・pushする。「コミットして」「pushして」「作業内容を保存して」「変更をリモートに反映して」といった指示があったときに使う。
+model: sonnet
 ---
 
 # git commit and push

@@ -1,6 +1,7 @@
 ---
 name: create-pr
 description: 現状の作業ブランチのPull Request（PR）を作成する。
+model: sonnet
 ---
 
 # Pull Request（PR）の作成

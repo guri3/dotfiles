@@ -7,12 +7,16 @@ endif
 
 .DEFAULT_GOAL := install
 
-.PHONY: install brew shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor ghostty herdr skills agents
+.PHONY: install brew brew-check shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor ghostty herdr skills agents
 
 install: brew shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor ghostty herdr skills agents
 
+# Homebrew本体はインストール方法が変わりうるため自動化せず、存在チェックのみ行う
+brew-check:
+	@command -v brew >/dev/null 2>&1 || { echo "Homebrewが見つからない。https://brew.sh の手順でインストールしてから再実行すること"; exit 1; }
+
 # Homebrew パッケージのインストール
-brew:
+brew: brew-check
 	brew bundle --file="$(DOTFILES_PATH)/Brewfile"
 
 # Shell (zsh / bash)

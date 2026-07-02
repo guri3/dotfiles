@@ -2,17 +2,26 @@
 
 ## セットアップ
 
-新しいMacでは以下を実行する。
+### 1. Homebrewをインストールする
+
+インストール方法は変わる可能性があるため、[公式サイト](https://brew.sh/ja/)の手順に従う。
+
+### 2. リポジトリをcloneする
+
+ghqの規約に従った場所に配置する。
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/guri3/dotfiles/master/bootstrap.sh | bash
+git clone https://github.com/guri3/dotfiles.git ~/ghq/github.com/guri3/dotfiles
 ```
 
-bootstrap.shは以下を行う。
+### 3. make installを実行する
 
-- Homebrewが未インストールならインストールする
-- ghqの規約に従い `~/ghq/github.com/guri3/dotfiles` にリポジトリをcloneする
-- `make install` で全セットアップを実行する
+```sh
+cd ~/ghq/github.com/guri3/dotfiles
+make install
+```
+
+Homebrewパッケージ・miseで管理するツール・各種設定ファイルのsymlinkまで、すべてのセットアップが完了する。
 
 ## 個別実行
 

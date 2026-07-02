@@ -1,0 +1,1 @@
+javascript:void((async()=>{var m=document.title.match(/^(.+)\s+by\s+.+·\s+Pull Request\s+%23(\d+)/);if(m){var text=m[1].trim()+" %23"+m[2]+String.fromCharCode(10)+location.href;await navigator.clipboard.writeText(text)}})())

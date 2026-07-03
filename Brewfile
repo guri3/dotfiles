@@ -1,5 +1,6 @@
 # Tap
 tap "felixkratz/formulae", trusted: true
+tap "k1low/tap", trusted: true
 tap "manaflow-ai/cmux", trusted: true
 tap "microsoft/apm", trusted: true
 tap "mutagen-io/mutagen", trusted: true
@@ -34,6 +35,7 @@ brew "pinentry-mac"
 brew "mutagen-io/mutagen/mutagen-compose"
 
 # ユーティリティ
+brew "k1low/tap/mo"
 brew "felixkratz/formulae/borders"
 
 # GUIアプリ - 開発ツール

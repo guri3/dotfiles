@@ -180,6 +180,7 @@
   "terminal.integrated.automationProfile.osx": {
     "path": "/opt/homebrew/bin/zsh"
   },
+  "terminal.integrated.enablePersistentSessions": false,
   "terminal.integrated.shellIntegration.enabled": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "update.mode": "silentlyApplyOnQuit",

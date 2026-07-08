@@ -107,6 +107,17 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/nippo-tweet.sh",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   },
   "statusLine": {

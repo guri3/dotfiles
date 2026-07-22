@@ -164,7 +164,7 @@ alias rs='bundle exec rails s'
 alias rc='bundle exec rails c'
 alias bi='bundle install --path vendor/bundle'
 # dockerエイリアス
-alias do='docker'
+alias dk='docker'
 alias doc='docker-compose'
 alias dcb='docker-compose build'
 alias dcu='docker-compose up'

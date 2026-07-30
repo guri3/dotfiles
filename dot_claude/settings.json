@@ -5,7 +5,6 @@
     "CLAUDE_CODE_NO_FLICKER": "1"
   },
   "permissions": {
-    "defaultMode": "auto",
     "allow": [
       "Bash(gh:*)",
       "Bash(git:*)",
@@ -80,7 +79,8 @@
     ],
     "ask": [
       "Bash(gh pr merge *)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "model": "claude-fable-5[1m]",
   "hooks": {
@@ -136,5 +136,6 @@
   "preferredNotifChannel": "notifications_disabled",
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "inputNeededNotifEnabled": true
 }

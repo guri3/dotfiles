@@ -59,6 +59,14 @@
   - ex. `ln -s $HOME/.guri3 .guri3`
 - まとまった文章をユーザーに提示するときはmdファイルとして出力してレビュー依頼して
 
+## スキルの管理
+
+- スキルは apm（user スコープ、`~/.apm/`）で一元管理する
+- スキルの作成・更新は dotfiles リポジトリの `dot_ai/skills/` で行うこと
+- 変更したスキルを `~/.claude/skills/` へ直接コピーして反映しないこと
+  - 直接コピーは apm 管理外の状態を作り、apm.lock.yaml との不整合を生むため
+- 反映手順: PR を master にマージした後、apm-user-sync スキル（または対象を明示した `apm install -g --update`）で user スコープに反映する
+
 ## パーマリンクの使用
 
 Issue や PR でソースコードを参照する際は、必ず GitHub のパーマリンク（permalink）を使用すること。

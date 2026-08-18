@@ -19,6 +19,7 @@ brew "ripgrep"
 brew "gh"
 brew "mise"
 brew "graphviz"
+brew "jq"
 brew "mkcert"
 brew "microsoft/apm/apm"
 

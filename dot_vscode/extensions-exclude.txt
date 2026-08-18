@@ -1,0 +1,6 @@
+# VS Codeへインストールしない拡張機能。
+# 行頭の#以降はコメントとして無視される。
+
+# Cursor専用でVS Code Marketplaceに存在しない
+anysphere.cursorpyright
+anysphere.remote-ssh

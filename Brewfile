@@ -16,6 +16,7 @@ brew "tree"
 brew "ripgrep"
 
 # 開発ツール
+brew "crit"
 brew "gh"
 brew "mise"
 brew "graphviz"

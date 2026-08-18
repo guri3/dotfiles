@@ -19,9 +19,9 @@ $(GOALS):
 
 else
 
-.PHONY: install brew brew-check shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor cursor-extensions cursor-dump ghostty herdr skills agents
+.PHONY: install brew brew-check shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor cursor-extensions cursor-dump vscode vscode-extensions ghostty herdr skills agents
 
-install: brew shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor cursor-extensions ghostty herdr skills agents
+install: brew shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor cursor-extensions vscode vscode-extensions ghostty herdr skills agents
 
 # Homebrew本体はインストール方法が変わりうるため自動化せず、存在チェックのみ行う
 brew-check:
@@ -96,26 +96,37 @@ claude:
 	ln -sfn "$(DOTFILES_PATH)/dot_claude/settings.json" "$(HOME)/.claude/settings.json"
 	ln -sfn "$(DOTFILES_PATH)/dot_claude/scripts" "$(HOME)/.claude/scripts"
 
-# Cursor
+# エディタ (VS Code / Cursor)
+# CursorはVS Codeのフォークであり設定形式が共通なため、dot_editorで設定を共通管理する。
+# エディタ固有の差分が必要になった場合はdot_cursor / dot_vscodeに同名のファイルを置く。
+EDITOR_DIR := $(DOTFILES_PATH)/dot_editor
 CURSOR_USER_DIR := $(HOME)/Library/Application Support/Cursor/User
+VSCODE_USER_DIR := $(HOME)/Library/Application Support/Code/User
 
-# Cursor自身が設定ファイルを書き換えるため、symlinkではなくcpで反映する
+# Cursor
 cursor:
-	mkdir -p "$(HOME)/.cursor" "$(CURSOR_USER_DIR)"
+	mkdir -p "$(HOME)/.cursor"
 	ln -sfn "$(DOTFILES_PATH)/dot_ai/AGENTS.md" "$(HOME)/.cursor/AGENTS.md"
-	rm -f "$(CURSOR_USER_DIR)/settings.json" "$(CURSOR_USER_DIR)/keybindings.json"
-	cp "$(DOTFILES_PATH)/dot_cursor/settings.json" "$(CURSOR_USER_DIR)/settings.json"
-	cp "$(DOTFILES_PATH)/dot_cursor/keybindings.json" "$(CURSOR_USER_DIR)/keybindings.json"
+	"$(DOTFILES_PATH)/scripts/editor-settings.sh" "$(DOTFILES_PATH)/dot_cursor" "$(CURSOR_USER_DIR)"
 
 # Cursorの拡張機能を一覧ファイルからインストールする（cursorコマンドはcask経由で入る）
 cursor-extensions:
-	xargs -L1 cursor --install-extension < "$(DOTFILES_PATH)/dot_cursor/extensions.txt"
+	"$(DOTFILES_PATH)/scripts/editor-extensions.sh" cursor "$(DOTFILES_PATH)/dot_cursor"
 
-# Cursor側の現状（設定・拡張機能一覧）をdotfilesに取り込む
+# Cursor側の現状（設定・拡張機能一覧）を共通設定として取り込む。
+# dot_cursorにエディタ固有の設定を分離している場合は、取り込み後に手動で振り分けること。
 cursor-dump:
-	cp "$(CURSOR_USER_DIR)/settings.json" "$(DOTFILES_PATH)/dot_cursor/settings.json"
-	cp "$(CURSOR_USER_DIR)/keybindings.json" "$(DOTFILES_PATH)/dot_cursor/keybindings.json"
-	cursor --list-extensions | sort > "$(DOTFILES_PATH)/dot_cursor/extensions.txt"
+	cp "$(CURSOR_USER_DIR)/settings.json" "$(EDITOR_DIR)/settings.json"
+	cp "$(CURSOR_USER_DIR)/keybindings.json" "$(EDITOR_DIR)/keybindings.json"
+	cursor --list-extensions | sort > "$(EDITOR_DIR)/extensions.txt"
+
+# VS Code
+vscode:
+	"$(DOTFILES_PATH)/scripts/editor-settings.sh" "$(DOTFILES_PATH)/dot_vscode" "$(VSCODE_USER_DIR)"
+
+# VS Codeの拡張機能を一覧ファイルからインストールする（codeコマンドはcask経由で入る）
+vscode-extensions:
+	"$(DOTFILES_PATH)/scripts/editor-extensions.sh" code "$(DOTFILES_PATH)/dot_vscode"
 
 # Ghostty
 ghostty:

@@ -26,7 +26,7 @@ next_tab = ""
 rename_tab = "prefix+comma"    # tmux: prefix+,
 close_tab = "prefix+ampersand" # tmux: prefix+&
 
-copy_mode = "prefix+v"            # tmux: bind v copy-mode
+copy_mode = "prefix+["            # tmux: prefix+[ でcopy-mode
 split_vertical = "prefix+|"       # 左右分割（tmux: bind |）
 split_horizontal = "prefix+minus" # 上下分割（tmux: bind -）
 resize_mode = "prefix+shift+r"    # prefix+r は reload_config に譲る

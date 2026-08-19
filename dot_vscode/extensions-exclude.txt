@@ -4,3 +4,6 @@
 # Cursor専用でVS Code Marketplaceに存在しない
 anysphere.cursorpyright
 anysphere.remote-ssh
+
+# VS Code Marketplaceから削除されている。Cursorには導入済みのため共通リストには残す
+bung87.rails

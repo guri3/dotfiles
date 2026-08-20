@@ -52,6 +52,7 @@ cask "visual-studio-code"
 # GUIアプリ - AI
 cask "chatgpt"
 cask "claude"
+cask "claude-code"
 
 # GUIアプリ - コミュニケーション
 cask "discord"

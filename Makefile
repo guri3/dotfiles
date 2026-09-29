@@ -140,7 +140,7 @@ herdr:
 
 # Skills (APM 経由でグローバルインストール)
 skills:
-	for skill in create-pr empirical-prompt-tuning git-commit nippo rule-feedback self-diagnosis solve split-pr; do \
+	for skill in create-pr empirical-prompt-tuning git-commit nippo solve split-pr; do \
 		apm install -g "guri3/dotfiles/dot_ai/skills/$$skill"; \
 	done
 

@@ -4,7 +4,7 @@
 onboarding = false
 
 [terminal]
-# ログインシェルはbashのため、ペインではzshを起動する（tmuxのdefault-shell相当）
+# ペインで起動するシェル（tmuxのdefault-shell相当）
 default_shell = "/opt/homebrew/bin/zsh"
 
 [keys]

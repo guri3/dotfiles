@@ -183,3 +183,21 @@ fi
 if (which zprof > /dev/null 2>&1) ;then
   zprof
 fi
+
+# herdrの自動起動
+# herdr・tmuxの中、SSH接続時、Claude Codeが実行するシェルでは起動しない
+function herdr_automatically_attach_session() {
+  if [[ -n "$HERDR_ENV" || -n "$TMUX" || -n "$SSH_CONNECTION" || -n "$CLAUDECODE" ]]; then
+    return 0
+  fi
+  if [[ ! -o interactive ]]; then
+    return 0
+  fi
+  if (( ! $+commands[herdr] )); then
+    echo 'Error: herdr command not found' 1>&2
+    return 1
+  fi
+
+  herdr
+}
+herdr_automatically_attach_session

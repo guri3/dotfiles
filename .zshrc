@@ -185,9 +185,9 @@ if (which zprof > /dev/null 2>&1) ;then
 fi
 
 # herdrの自動起動
-# herdr・tmuxの中、SSH接続時、Claude Codeが実行するシェルでは起動しない
+# herdr・tmux・Orcaの中、SSH接続時、Claude Codeが実行するシェルでは起動しない
 function herdr_automatically_attach_session() {
-  if [[ -n "$HERDR_ENV" || -n "$TMUX" || -n "$SSH_CONNECTION" || -n "$CLAUDECODE" ]]; then
+  if [[ -n "$HERDR_ENV" || -n "$TMUX" || -n "$ORCA_TERMINAL_HANDLE" || -n "$ORCA_PANE_KEY" || -n "$SSH_CONNECTION" || -n "$CLAUDECODE" ]]; then
     return 0
   fi
   if [[ ! -o interactive ]]; then

@@ -80,6 +80,9 @@
     "ask": [
       "Bash(gh pr merge *)"
     ],
+    "additionalDirectories": [
+      "~/.guri3"
+    ],
     "defaultMode": "auto"
   },
   "model": "claude-fable-5[1m]",

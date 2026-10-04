@@ -19,6 +19,17 @@ $(GOALS):
 
 else
 
+# ディレクトリへのsymlinkを張る。
+# リンク先が実ディレクトリだとln -sfnはその中にリンクを作ってしまうため、退避してから張る。
+define link_dir
+	@if [ -d "$(2)" ] && [ ! -L "$(2)" ]; then \
+		backup="$(2).bak.$$(date +%Y%m%d%H%M%S)"; \
+		echo "$(2) は実ディレクトリのため $$backup に退避する"; \
+		mv "$(2)" "$$backup"; \
+	fi
+	ln -sfn "$(1)" "$(2)"
+endef
+
 .PHONY: install brew brew-check shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor cursor-extensions cursor-dump vscode vscode-extensions ghostty herdr skills agents
 
 install: brew shell git vim pry tmux aerospace borders mise mise-install starship codex claude cursor cursor-extensions vscode vscode-extensions ghostty herdr skills agents
@@ -43,12 +54,12 @@ git:
 	ln -sfn "$(DOTFILES_PATH)/git/.gitconfig" "$(HOME)/.gitconfig"
 	ln -sfn "$(DOTFILES_PATH)/git/.gitconfig.local" "$(HOME)/.gitconfig.local"
 	ln -sfn "$(DOTFILES_PATH)/git/.gitignore.global" "$(HOME)/.gitignore"
-	ln -sfn "$(DOTFILES_PATH)/.git_template" "$(HOME)/.git_template"
+	$(call link_dir,$(DOTFILES_PATH)/.git_template,$(HOME)/.git_template)
 
 # Vim
 vim:
 	ln -sfn "$(DOTFILES_PATH)/.vimrc" "$(HOME)/.vimrc"
-	ln -sfn "$(DOTFILES_PATH)/.vim" "$(HOME)/.vim"
+	$(call link_dir,$(DOTFILES_PATH)/.vim,$(HOME)/.vim)
 
 # Pry
 pry:
@@ -58,7 +69,7 @@ pry:
 tmux:
 	ln -sfn "$(DOTFILES_PATH)/.tmux.conf" "$(HOME)/.tmux.conf"
 	mkdir -p "$(HOME)/.config"
-	ln -sfn "$(DOTFILES_PATH)/.config/tmux" "$(HOME)/.config/tmux"
+	$(call link_dir,$(DOTFILES_PATH)/.config/tmux,$(HOME)/.config/tmux)
 
 # AeroSpace
 aerospace:
@@ -67,12 +78,12 @@ aerospace:
 # Borders
 borders:
 	mkdir -p "$(HOME)/.config"
-	ln -sfn "$(DOTFILES_PATH)/dot_config/borders" "$(HOME)/.config/borders"
+	$(call link_dir,$(DOTFILES_PATH)/dot_config/borders,$(HOME)/.config/borders)
 
 # mise
 mise:
 	mkdir -p "$(HOME)/.config"
-	ln -sfn "$(DOTFILES_PATH)/dot_config/mise" "$(HOME)/.config/mise"
+	$(call link_dir,$(DOTFILES_PATH)/dot_config/mise,$(HOME)/.config/mise)
 
 # miseで管理するツールのインストール（mise本体はbrew経由で入るためbrewに依存）
 mise-install: brew mise
@@ -94,7 +105,7 @@ claude:
 	mkdir -p "$(HOME)/.claude"
 	ln -sfn "$(DOTFILES_PATH)/dot_claude/CLAUDE.md" "$(HOME)/.claude/CLAUDE.md"
 	ln -sfn "$(DOTFILES_PATH)/dot_claude/settings.json" "$(HOME)/.claude/settings.json"
-	ln -sfn "$(DOTFILES_PATH)/dot_claude/scripts" "$(HOME)/.claude/scripts"
+	$(call link_dir,$(DOTFILES_PATH)/dot_claude/scripts,$(HOME)/.claude/scripts)
 
 # エディタ (VS Code / Cursor)
 # CursorはVS Codeのフォークであり設定形式が共通なため、dot_editorで設定を共通管理する。

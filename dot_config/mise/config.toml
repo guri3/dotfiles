@@ -14,6 +14,7 @@ ghq = "latest"
 "npm:yarn" = "1.22.22"
 "npm:@openai/codex" = "0.125.0"
 "npm:ccstatusline" = "2.2.15"
+"npm:@ticktick/ticktick-cli" = "0.1.14"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]

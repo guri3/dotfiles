@@ -44,6 +44,7 @@
   - ref: https://github.com/anthropics/claude-code/issues/27957
 - git操作などのただの文字列操作に`$(cat)`のようなコマンド置換を使わないこと
   - コミットメッセージは`-m`オプションに直接文字列を渡すこと
+- 定期実行は最初から Orca の automation（`orca-cli` の automations）で組み、launchd や cron は第一案にしないこと
 
 ### ブランチ名のルール
 
